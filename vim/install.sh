@@ -22,6 +22,4 @@ git clone https://github.com/nathanaelkane/vim-indent-guides.git \
 	$PLUGIN_OPTS
 git clone https://github.com/dhruvasagar/vim-table-mode.git \
 	$PLUGIN_OPTS
-git clone https://github.com/fatih/vim-go.git \
-    $PLUGIN_OPTS
 
