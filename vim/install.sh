@@ -24,4 +24,13 @@ git clone https://github.com/dhruvasagar/vim-table-mode.git \
 	$PLUGIN_OPTS
 git clone https://github.com/fatih/vim-go.git \
     $PLUGIN_OPTS
-
+git clone https://github.com/tpope/vim-fugitive.git \
+    $PLUGIN_OPTS
+git clone https://github.com/vim-airline/vim-airline.git \
+    $PLUGIN_OPTS
+git clone https://github.com/hashivim/vim-terraform.git \
+    $PLUGIN_OPTS
+git clone https://github.com/SirVer/ultisnips.git \
+    $PLUGIN_OPTS
+git clone https://github.com/honza/vim-snippets.git \
+    $PLUGIN_OPTS
