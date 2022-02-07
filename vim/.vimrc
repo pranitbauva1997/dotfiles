@@ -18,6 +18,9 @@ colorscheme pablo
 set undofile
 set undodir=~/.vim/undodir
 
+" Set folding
+set foldmethod=indent
+
 " Mappings
 map <C-n> :NERDTree<CR>
 
@@ -61,3 +64,7 @@ let g:go_highlight_generate_tags = 1
 " Terraform file configs
 let g:terraform_fmt_on_save = 1
 let g_terraform_align = 1
+
+" Snippets and Code completion
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<C-l>"
