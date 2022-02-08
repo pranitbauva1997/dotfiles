@@ -34,3 +34,22 @@ git clone https://github.com/SirVer/ultisnips.git \
     $PLUGIN_OPTS
 git clone https://github.com/honza/vim-snippets.git \
     $PLUGIN_OPTS
+git clone https://github.com/alvan/vim-closetag.git \
+    $PLUGIN_OPTS
+git clone https://github.com/vim-scripts/AutoClose.git \
+    $PLUGIN_OPTS
+git clone https://github.com/junegunn/goyo.vim.git \
+    $PLUGIN_OPTS
+git clone https://github.com/mg979/vim-visual-multi.git \
+    $PLUGIN_OPTS
+git clone https://github.com/pangloss/vim-javascript.git \
+    $PLUGIN_OPTS
+git clone https://github.com/leafgarland/typescript-vim.git \
+    $PLUGIN_OPTS
+git clone https://github.com/MaxMEllon/vim-jsx-pretty.git \
+    $PLUGIN_OPTS
+git clone https://github.com/peitalin/vim-jsx-typescript.git \
+    $PLUGIN_OPTS
+git clone https://github.com/tomtom/tcomment_vim.git \
+    $PLUGIN_OPTS
+

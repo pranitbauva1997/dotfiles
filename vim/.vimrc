@@ -3,6 +3,7 @@ filetype plugin indent on
 set encoding=utf-8
 set fileencoding=utf-8
 set number
+set relativenumber
 set expandtab
 set shiftwidth=4
 set softtabstop=4
@@ -12,7 +13,19 @@ syntax enable
 set lazyredraw
 set showmatch
 set spell
+set hlsearch
 colorscheme pablo
+
+" Set custom indent width for particular filetype
+autocmd Filetype html set shiftwidth=2 softtabstop=2 tabstop=2
+autocmd Filetype css set shiftwidth=2 softtabstop=2 tabstop=2
+autocmd Filetype javascript set shiftwidth=2 softtabstop=2 tabstop=2
+autocmd Filetype javascriptreact set shiftwidth=2 softtabstop=2 tabstop=2
+autocmd Filetype typescript set shiftwidth=2 softtabstop=2 tabstop=2
+autocmd Filetype typescriptcommon set shiftwidth=2 softtabstop=2 tabstop=2
+autocmd Filetype typescriptreact set shiftwidth=2 softtabstop=2 tabstop=2
+
+autocmd Filetype make set noexpandtab
 
 " Maintain undo history between sessions
 set undofile
@@ -20,6 +33,8 @@ set undodir=~/.vim/undodir
 
 " Set folding
 set foldmethod=indent
+
+set backspace=indent,eol,start
 
 " Mappings
 map <C-n> :NERDTree<CR>
@@ -68,3 +83,51 @@ let g_terraform_align = 1
 " Snippets and Code completion
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsListSnippets="<C-l>"
+
+" Closetags Plugin config
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+let g:closetag_filetypes = 'html,xhtml,phtml'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+let g:closetag_emptyTags_caseSensitive = 1
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
+
+" Shortcut for closing tags, default is '>'
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+let g:closetag_close_shortcut = '<leader>>'
+
+" Javascript Plugin config
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
