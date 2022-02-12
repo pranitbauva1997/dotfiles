@@ -52,4 +52,6 @@ git clone https://github.com/peitalin/vim-jsx-typescript.git \
     $PLUGIN_OPTS
 git clone https://github.com/tomtom/tcomment_vim.git \
     $PLUGIN_OPTS
+git clone https://github.com/airblade/vim-gitgutter.git \
+    $PLUGIN_OPTS
 

@@ -1,0 +1,34 @@
+[user]
+	name = Pranit Bauva
+	email = pranit@bauva.com
+[core]
+    editor = vim
+# [github]
+#     user = pranitbauva1997
+# [gitlab]
+#     user = pranitbauva1997
+[alias]
+    A = add -A
+    a = add
+    b = branch
+    c = checkout
+    cl = clone
+    d = diff
+    ds = diff --cached
+    l = log
+    p = push
+    p = pull
+[push]
+    default = current
+[pull]
+	ff = only
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/
+[url "git@bitbucket.org:"]
+	insteadOf = https://bitbucket.org/
+[commit]
+	verbose = 2
+[blame]
+    date = short

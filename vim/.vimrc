@@ -78,6 +78,11 @@ let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 
+" Vim fugitive
+nmap <Leader>gd :Git diff<CR>
+nmap <Leader>gl :Git log<CR>
+nmap <Leader>gb :Git blame<CR>
+
 " Terraform file configs
 let g:terraform_fmt_on_save = 1
 let g_terraform_align = 1
@@ -134,6 +139,13 @@ let g:javascript_conceal_static               = "•"
 let g:javascript_conceal_super                = "Ω"
 let g:javascript_conceal_arrow_function       = "⇒"
 
-" Mappings
-map <C-n> :NERDTree<CR>
+" NERDTree Mappings
+nmap <Leader>nt :NERDTree<CR>
 
+" Vim Gutter
+set updatetime=250
+
+" Vim Gutter Mappings
+nmap <Leader>gn :GitGutterNextHunk<CR>
+nmap <Leader>gp :GitGutterPrevHunk<CR>
+nmap <Leader>gv :GitGutterPreviewHunk<CR>
