@@ -4,16 +4,17 @@
 # usage function
 function usage()
 {
-   cat << BauvaDotfiles 
+   cat << HEREDOC
 
    Usage: $progname [--num NUM] [--time TIME_STR] [--verbose] [--dry-run]
 
    optional arguments:
      -h, --help           show this help message and exit
-     -n, --num NUM        pass in a number
-     -t, --time TIME_STR  pass in a time string
-     -v, --verbose        increase the verbosity of the bash script
-     --dry-run            do a dry run, dont change any files
+     --all                install all the configs in full setting
+     --bin                install all the custom scripts
+     --git                install all the git configs and aliases
+     --vim-plugin         install all the vim plugins
+     --vimrc              install the vimrc file in appropriate location
 
 HEREDOC
 }  
