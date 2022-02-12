@@ -27,6 +27,11 @@ autocmd Filetype typescriptreact set shiftwidth=2 softtabstop=2 tabstop=2
 
 autocmd Filetype make set noexpandtab
 
+" Set spell check for markdown and text file
+autocmd Filetype markdown set spell
+autocmd Filetype markdown_tablemode set spell
+autocmd Filetype text set spell
+
 " Maintain undo history between sessions
 set undofile
 set undodir=~/.vim/undodir
@@ -35,9 +40,6 @@ set undodir=~/.vim/undodir
 set foldmethod=indent
 
 set backspace=indent,eol,start
-
-" Mappings
-map <C-n> :NERDTree<CR>
 
 " Plugin Configurations
 "
@@ -91,7 +93,7 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 
 " filenames like *.xml, *.xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
 
 " filetypes like xml, html, xhtml, ...
 " These are the file types where this plugin is enabled.
@@ -131,3 +133,7 @@ let g:javascript_conceal_prototype            = "¶"
 let g:javascript_conceal_static               = "•"
 let g:javascript_conceal_super                = "Ω"
 let g:javascript_conceal_arrow_function       = "⇒"
+
+" Mappings
+map <C-n> :NERDTree<CR>
+
