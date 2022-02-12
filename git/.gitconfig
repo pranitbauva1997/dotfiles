@@ -11,15 +11,16 @@
     A = add -A
     a = add
     b = branch
-    c = checkout
+    ck = checkout
     ct = commit
     cl = clone
-    d = diff
+    df = diff
     ds = diff --cached
     l = log
-    p = push
-    p = pull
-    s = status
+    ph = push
+    pl = pull
+    r = rebase
+    ss = status
     st = stash
 [push]
     default = current
