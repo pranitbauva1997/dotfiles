@@ -1,57 +1,68 @@
 #!/bin/sh
 
-VIM_DIR=$HOME/.vim
-VIM_PLUGINS=$VIM_DIR/pack/vendor/start
+VIM_DIR=${HOME}/.vim
+VIM_PLUGINS=${VIM_DIR}/pack/vendor/start
 PLUGIN_OPTS="--depth 1 --branch master"
 
-sh clean.sh
-cp .vimrc $HOME/.vimrc
+function usage()
+{
+  cat << HEREDOC
+
+   Usage: $progname (-h | --help) | (-all) | (--vim-plugin) | (--vimrc)
+
+   arguments:
+     -h, --help           show this help message and exit
+     --all                install all vim configs in full setting
+     --vim-plugin         install all the vim plugins
+     --vimrc              install the vimrc file in appropriate location
+
+HEREDOC
+}
+
+
+function vimrc() {
+  rm -f ${HOME}/.vimrc
+  cp .vimrc ${HOME}/.vimrc
+}
 
 # Install Plugins
-mkdir -p $VIM_PLUGINS
-cd $VIM_PLUGINS
-git clone https://github.com/ctrlpvim/ctrlp.vim.git \
-	$PLUGIN_OPTS
-git clone https://github.com/preservim/nerdtree.git \
-	$PLUGIN_OPTS
-git clone https://github.com/vimwiki/vimwiki.git \
-	$PLUGIN_OPTS
-git clone https://github.com/tpope/vim-surround.git \
-	$PLUGIN_OPTS
-git clone https://github.com/nathanaelkane/vim-indent-guides.git \
-	$PLUGIN_OPTS
-git clone https://github.com/dhruvasagar/vim-table-mode.git \
-	$PLUGIN_OPTS
-git clone https://github.com/fatih/vim-go.git \
-    $PLUGIN_OPTS
-git clone https://github.com/tpope/vim-fugitive.git \
-    $PLUGIN_OPTS
-git clone https://github.com/vim-airline/vim-airline.git \
-    $PLUGIN_OPTS
-git clone https://github.com/hashivim/vim-terraform.git \
-    $PLUGIN_OPTS
-git clone https://github.com/SirVer/ultisnips.git \
-    $PLUGIN_OPTS
-git clone https://github.com/honza/vim-snippets.git \
-    $PLUGIN_OPTS
-git clone https://github.com/alvan/vim-closetag.git \
-    $PLUGIN_OPTS
-git clone https://github.com/vim-scripts/AutoClose.git \
-    $PLUGIN_OPTS
-git clone https://github.com/junegunn/goyo.vim.git \
-    $PLUGIN_OPTS
-git clone https://github.com/mg979/vim-visual-multi.git \
-    $PLUGIN_OPTS
-git clone https://github.com/pangloss/vim-javascript.git \
-    $PLUGIN_OPTS
-git clone https://github.com/leafgarland/typescript-vim.git \
-    $PLUGIN_OPTS
-git clone https://github.com/MaxMEllon/vim-jsx-pretty.git \
-    $PLUGIN_OPTS
-git clone https://github.com/peitalin/vim-jsx-typescript.git \
-    $PLUGIN_OPTS
-git clone https://github.com/tomtom/tcomment_vim.git \
-    $PLUGIN_OPTS
-git clone https://github.com/airblade/vim-gitgutter.git \
-    $PLUGIN_OPTS
+function vim_plugins() {
+  rm -rf ${VIM_PLUGINS}
+  mkdir -p ${VIM_PLUGINS}
+  cd ${VIM_PLUGINS}
+  git clone ${PLUGIN_OPTS} https://github.com/ctrlpvim/ctrlp.vim.git
+  git clone ${PLUGIN_OPTS} https://github.com/preservim/nerdtree.git
+  git clone ${PLUGIN_OPTS} https://github.com/vimwiki/vimwiki.git
+  git clone ${PLUGIN_OPTS} https://github.com/tpope/vim-surround.git
+  git clone ${PLUGIN_OPTS} https://github.com/nathanaelkane/vim-indent-guides.git
+  git clone ${PLUGIN_OPTS} https://github.com/dhruvasagar/vim-table-mode.git
+  git clone ${PLUGIN_OPTS} https://github.com/fatih/vim-go.git
+  git clone ${PLUGIN_OPTS} https://github.com/tpope/vim-fugitive.git
+  git clone ${PLUGIN_OPTS} https://github.com/vim-airline/vim-airline.git
+  git clone ${PLUGIN_OPTS} https://github.com/hashivim/vim-terraform.git
+  git clone ${PLUGIN_OPTS} https://github.com/SirVer/ultisnips.git
+  git clone ${PLUGIN_OPTS} https://github.com/honza/vim-snippets.git
+  git clone ${PLUGIN_OPTS} https://github.com/alvan/vim-closetag.git
+  git clone ${PLUGIN_OPTS} https://github.com/vim-scripts/AutoClose.git
+  git clone ${PLUGIN_OPTS} https://github.com/junegunn/goyo.vim.git
+  git clone ${PLUGIN_OPTS} https://github.com/mg979/vim-visual-multi.git
+  git clone ${PLUGIN_OPTS} https://github.com/pangloss/vim-javascript.git
+  git clone ${PLUGIN_OPTS} https://github.com/leafgarland/typescript-vim.git
+  git clone ${PLUGIN_OPTS} https://github.com/MaxMEllon/vim-jsx-pretty.git
+  git clone ${PLUGIN_OPTS} https://github.com/peitalin/vim-jsx-typescript.git
+  git clone ${PLUGIN_OPTS} https://github.com/tomtom/tcomment_vim.git
+  git clone ${PLUGIN_OPTS} https://github.com/airblade/vim-gitgutter.git
+}
+
+function all() {
+  vim_plugins && vimrc
+}
+
+case "$1" in
+  -h | --help ) usage ; exit; ;;
+  --all ) all ; exit; ;;
+  --vimrc ) vimrc ; exit; ;;
+  --vim-plugin ) vim_plugin ; exit; ;;
+  * ) echo "invalid argument: $1" && usage ; exit; ;;
+esac
 

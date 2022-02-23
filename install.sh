@@ -1,13 +1,46 @@
 #!/bin/bash
 
-# usage function
+PROJ_DIR=${PWD}
+VIM_DIR=${PWD}/vim
+GIT_DIR=${PWD}/git
+progname="$0"
+
+function vimrc() {
+  echo "install the vimrc config"
+}
+
+function vim_plugin() {
+  echo "install the vim plugins"
+}
+
+function vim() {
+  cd ${VIM_DIR}
+  sh install.sh
+  cd ${PROJ_DIR}
+}
+
+function git() {
+  cd ${GIT_DIR}
+  sh install.sh
+  cd ${PROJ_DIR}
+}
+
+function bin() {
+  echo "install the custom scripts"
+}
+
+function all() {
+  echo "install all configs"
+  vim && git && bin
+}
+
 function usage()
 {
-   cat << HEREDOC
+  cat << HEREDOC
 
-   Usage: $progname [--num NUM] [--time TIME_STR] [--verbose] [--dry-run]
+   Usage: $progname (-h | --help) | (-all) | (--bin) | (--git) | (--vim-plugin) | (--vimrc)
 
-   optional arguments:
+   arguments:
      -h, --help           show this help message and exit
      --all                install all the configs in full setting
      --bin                install all the custom scripts
@@ -18,57 +51,12 @@ function usage()
 HEREDOC
 }  
 
-# initialize variables
-progname=$(basename $0)
-verbose=0
-dryrun=0
-num_str=
-time_str=
-
-# use getopt and store the output into $OPTS
-# note the use of -o for the short options, --long for the long name options
-# and a : for any option that takes a parameter
-OPTS=$(getopt -o "hn:t:v" --long "help,num:,time:,verbose,dry-run" -n "$progname" -- "$@")
-if [ $? != 0 ] ; then echo "Error in command line arguments." >&2 ; usage; exit 1 ; fi
-eval set -- "$OPTS"
-
-while true; do
-  # uncomment the next line to see how shift is working
-  # echo "\$1:\"$1\" \$2:\"$2\""
-  case "$1" in
-    -h | --help ) usage; exit; ;;
-    -n | --num ) num_str="$2"; shift 2 ;;
-    -t | --time ) time_str="$2"; shift 2 ;;
-    --dry-run ) dryrun=1; shift ;;
-    -v | --verbose ) verbose=$((verbose + 1)); shift ;;
-    -- ) shift; break ;;
-    * ) break ;;
-  esac
-done
-
-if (( $verbose > 0 )); then
-
-   # print out all the parameters we read in
-   cat <<EOM
-   num=$num_str
-   time=$time_str
-   verbose=$verbose
-   dryrun=$dryrun
-EOM
-fi
-
-# PROJ_DIR=${PWD}
-# VIM_DIR=${PWD}/vim
-# GIT_DIR=${PWD}/git
-# 
-# Configure Vim
-# echo "Configuring your favourite editor VIM\n"
-# cd ${VIM_DIR}
-# sh install.sh
-# cd ${PROJ_DIR}
-
-# Configure Git
-# echo "Configuring your Git tool\n"
-# cd ${GIT_DIR}
-# sh install.sh
-# cd ${PROJ_DIR}
+case "$1" in
+  -h | --help ) usage; exit; ;;
+  --all ) all ; exit; ;;
+  --bin ) bin ; exit; ;;
+  --git ) git ; exit;  ;;
+  --vim-plugin ) vim_plugin ; exit; ;;
+  --vimrc ) vimrc ; exit; ;;
+  * ) echo "invalid argument: $1" && usage ; exit; ;;
+esac

@@ -149,3 +149,10 @@ set updatetime=250
 nmap <Leader>gn :GitGutterNextHunk<CR>
 nmap <Leader>gp :GitGutterPrevHunk<CR>
 nmap <Leader>gv :GitGutterPreviewHunk<CR>
+
+" Remember folds
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END

@@ -2,7 +2,7 @@ all: vim git bin
 	# TODO: ./install.sh (--all)
 	echo "This will install all the configs in full settings\n"
 
-vim: vim-plugin vimrc 
+vim:
 	echo "this will install all vim configs in full settings\n"
 
 vimrc:
