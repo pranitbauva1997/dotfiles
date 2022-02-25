@@ -40,6 +40,9 @@ function vim_plugins() {
   git clone ${PLUGIN_OPTS} https://github.com/tpope/vim-fugitive.git
   git clone ${PLUGIN_OPTS} https://github.com/vim-airline/vim-airline.git
   git clone ${PLUGIN_OPTS} https://github.com/hashivim/vim-terraform.git
+  git clone ${PLUGIN_OPTS} https://github.com/ycm-core/YouCompleteMe
+  # git submodule update --init --recursive
+  # cd <YCM_GIT_DIR> && python3 install.sh -all
   git clone ${PLUGIN_OPTS} https://github.com/SirVer/ultisnips.git
   git clone ${PLUGIN_OPTS} https://github.com/honza/vim-snippets.git
   git clone ${PLUGIN_OPTS} https://github.com/alvan/vim-closetag.git

@@ -41,6 +41,10 @@ set foldmethod=indent
 
 set backspace=indent,eol,start
 
+" Language
+autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
+
 " Plugin Configurations
 "
 " Vim Indent Guides
@@ -50,7 +54,6 @@ let g:indent_guides_start_level = 2
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 " Golang configs
-" disable all linters as that is taken care of by coc.nvim
 let g:go_diagnostics_enabled = 0
 let g:go_metalinter_enabled = []
 
@@ -94,7 +97,7 @@ let g:UltiSnipsListSnippets="<C-l>"
 " Closetags Plugin config
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.tsx'
 
 " filenames like *.xml, *.xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
@@ -102,11 +105,11 @@ let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
 
 " filetypes like xml, html, xhtml, ...
 " These are the file types where this plugin is enabled.
-let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_filetypes = 'html,xhtml,phtml,javascript,javascript.jsx,typescript,typescript.tsx'
 
 " filetypes like xml, xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx'
 
 " integer value [0|1]
 " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
