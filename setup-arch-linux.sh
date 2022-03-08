@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo pacman -S --noconfirm vim cmake aria2 \
     a52dec faac faad2 flac jasper lame libdca \
     libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 \
