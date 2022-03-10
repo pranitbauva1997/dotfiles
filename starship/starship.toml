@@ -1,0 +1,48 @@
+
+add_newline = false
+
+[line_break]
+# disabled = true
+
+# Show Battery Status
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+threshold = 10
+style = "bold red"
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+threshold = 30
+style = "bold yellow"
+
+# when capacity is over 30%, the battery indicator will not be displayed
+
+[memory_usage]
+disabled = false
+show_percentage = true
+threshold = 50
+
+# Disable various packages of programming language
+
+[elm]
+disabled = true
+
+[golang]
+disabled = true
+
+[java]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[package]
+disabled = true
+
+[python]
+disabled = true
+
+[rust]
+disabled = true
+
+[ruby]
+disabled = true
