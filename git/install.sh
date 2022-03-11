@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
 
-cp .gitconfig ${HOME}/.gitconfig
+./clean.sh
+cp gitconfig ${HOME}/.gitconfig
 

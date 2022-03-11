@@ -2,10 +2,10 @@
 
 VIM_DIR=${HOME}/.vim
 VIM_PLUGINS=${VIM_DIR}/pack/vendor/start
+YOU_COMPLETE_ME_DIR=${VIM_PLUGINS}/YouCompleteMe
 PLUGIN_OPTS="--depth 1 --branch master"
 
-function usage()
-{
+usage() {
   cat << HEREDOC
 
    Usage: $progname (-h | --help) | (-all) | (--vim-plugin) | (--vimrc)
@@ -20,13 +20,13 @@ HEREDOC
 }
 
 
-function vimrc() {
+vimrc() {
   rm -f ${HOME}/.vimrc
-  cp .vimrc ${HOME}/.vimrc
+  cp vimrc ${HOME}/.vimrc
 }
 
 # Install Plugins
-function vim_plugins() {
+vim_plugins() {
   rm -rf ${VIM_PLUGINS}
   mkdir -p ${VIM_PLUGINS}
   cd ${VIM_PLUGINS}
@@ -55,9 +55,16 @@ function vim_plugins() {
   git clone ${PLUGIN_OPTS} https://github.com/peitalin/vim-jsx-typescript.git
   git clone ${PLUGIN_OPTS} https://github.com/tomtom/tcomment_vim.git
   git clone ${PLUGIN_OPTS} https://github.com/airblade/vim-gitgutter.git
+  setup_you_complete_me
 }
 
-function all() {
+setup_you_complete_me() {
+  cd ${YOU_COMPLETE_ME_DIR}
+  git submodule update --init --recursive
+  python3 install.sh -all
+}
+
+all() {
   vim_plugins && vimrc
 }
 

@@ -24,6 +24,7 @@ autocmd Filetype javascriptreact set shiftwidth=2 softtabstop=2 tabstop=2
 autocmd Filetype typescript set shiftwidth=2 softtabstop=2 tabstop=2
 autocmd Filetype typescriptcommon set shiftwidth=2 softtabstop=2 tabstop=2
 autocmd Filetype typescriptreact set shiftwidth=2 softtabstop=2 tabstop=2
+autocmd Filetype json set shiftwidth=2 softtabstop=2 tabstop=2
 
 autocmd Filetype make set noexpandtab
 

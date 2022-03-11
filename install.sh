@@ -1,40 +1,52 @@
-#!/bin/bash
+#!/bin/sh
 
 PROJ_DIR=${PWD}
 VIM_DIR=${PWD}/vim
 GIT_DIR=${PWD}/git
 progname="$0"
 
-function vimrc() {
-  echo "install the vimrc config"
-}
-
-function vim_plugin() {
-  echo "install the vim plugins"
-}
-
-function vim() {
+vimrc() {
   cd ${VIM_DIR}
-  sh install.sh
+  sh install.sh --vimrc
   cd ${PROJ_DIR}
 }
 
-function git() {
+vim_plugin() {
+  cd ${VIM_DIR}
+  sh install.sh --vim-plugin
+  cd ${PROJ_DIR}
+}
+
+vim() {
+  cd ${VIM_DIR}
+  sh install.sh --all
+  cd ${PROJ_DIR}
+}
+
+git() {
   cd ${GIT_DIR}
   sh install.sh
   cd ${PROJ_DIR}
 }
 
-function bin() {
+bin() {
   echo "install the custom scripts"
 }
 
-function all() {
+docker() {
+  echo "install the docker config"
+}
+
+starship() {
+  echo "install starship config"
+}
+
+all() {
   echo "install all configs"
   vim && git && bin
 }
 
-function usage()
+usage()
 {
   cat << HEREDOC
 
@@ -47,6 +59,8 @@ function usage()
      --git                install all the git configs and aliases
      --vim-plugin         install all the vim plugins
      --vimrc              install the vimrc file in appropriate location
+     --docker             install the docker config
+     --starship           install the starship config
 
 HEREDOC
 }  
@@ -58,5 +72,7 @@ case "$1" in
   --git ) git ; exit;  ;;
   --vim-plugin ) vim_plugin ; exit; ;;
   --vimrc ) vimrc ; exit; ;;
+  --docker ) docker ; exit; ;;
+  --starship ) starship ; exit; ;;
   * ) echo "invalid argument: $1" && usage ; exit; ;;
 esac
