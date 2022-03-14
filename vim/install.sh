@@ -54,6 +54,8 @@ vim_plugins() {
   git clone ${PLUGIN_OPTS} https://github.com/tomtom/tcomment_vim.git
   git clone ${PLUGIN_OPTS} https://github.com/airblade/vim-gitgutter.git
   git clone ${PLUGIN_OPTS} https://github.com/hdima/python-syntax.git
+  git clone ${PLUGIN_OPTS} https://github.com/Xuyuanp/nerdtree-git-plugin.git
+  git clone ${PLUGIN_OPTS} https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
   setup_you_complete_me
 }
 
