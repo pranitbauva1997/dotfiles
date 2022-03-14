@@ -3,10 +3,6 @@
 	email = pranit@bauva.com
 [core]
     editor = vim
-# [github]
-#     user = pranitbauva1997
-# [gitlab]
-#     user = pranitbauva1997
 [alias]
     A = add -A
     a = add
@@ -22,6 +18,13 @@
     r = rebase
     ss = status
     st = stash
+    unstage = reset HEAD --
+    last = log -1 -p
+    tags = tag -l
+    branches = branch --all
+    remotes = remote --verbose
+    contributors = shortlog --summary --numbered
+    whoami = config user.email
 [push]
     default = current
 [pull]
@@ -36,3 +39,7 @@
 	verbose = 2
 [blame]
     date = short
+[branch]
+    sort = -committerdate
+[status]
+    showStash = true
