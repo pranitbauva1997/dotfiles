@@ -15,6 +15,7 @@ set showmatch
 set spell
 set hlsearch
 colorscheme pablo
+let mapleader = ','
 
 " Set custom indent width for particular filetype
 autocmd Filetype html set shiftwidth=2 softtabstop=2 tabstop=2
@@ -83,9 +84,9 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 
 " Vim fugitive
-nmap <Leader>gd :Git diff<CR>
-nmap <Leader>gl :Git log<CR>
-nmap <Leader>gb :Git blame<CR>
+noremap <Leader>gd :Git diff<CR>
+noremap <Leader>gl :Git log<CR>
+noremap <Leader>gb :Git blame<CR>
 
 " Terraform file configs
 let g:terraform_fmt_on_save = 1
@@ -150,15 +151,12 @@ augroup javascript_folding
     au FileType javascript setlocal foldmethod=syntax
 augroup END
 
-" NERDTree Mappings
-nmap <Leader>nt :NERDTree<CR>
-
 " Vim Gutter
 set updatetime=250
 
 " Vim Gutter Mappings
-nmap <Leader>gn :GitGutterNextHunk<CR>
-nmap <Leader>gp :GitGutterPrevHunk<CR>
+noremap <Leader>gn :GitGutterNextHunk<CR>
+noremap <Leader>gp :GitGutterPrevHunk<CR>
 nmap <Leader>gv :GitGutterPreviewHunk<CR>
 
 " Remember folds
@@ -167,3 +165,9 @@ augroup remember_folds
   autocmd BufWinLeave * mkview
   autocmd BufWinEnter * silent! loadview
 augroup END
+
+let python_highlight_all = 1
+
+" NERDTree Mappings
+noremap <Leader>n :NERDTreeToggle<CR>
+

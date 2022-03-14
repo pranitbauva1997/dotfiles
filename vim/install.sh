@@ -41,8 +41,6 @@ vim_plugins() {
   git clone ${PLUGIN_OPTS} https://github.com/vim-airline/vim-airline.git
   git clone ${PLUGIN_OPTS} https://github.com/hashivim/vim-terraform.git
   git clone ${PLUGIN_OPTS} https://github.com/ycm-core/YouCompleteMe
-  # git submodule update --init --recursive
-  # cd <YCM_GIT_DIR> && python3 install.sh -all
   git clone ${PLUGIN_OPTS} https://github.com/SirVer/ultisnips.git
   git clone ${PLUGIN_OPTS} https://github.com/honza/vim-snippets.git
   git clone ${PLUGIN_OPTS} https://github.com/alvan/vim-closetag.git
@@ -55,6 +53,7 @@ vim_plugins() {
   git clone ${PLUGIN_OPTS} https://github.com/peitalin/vim-jsx-typescript.git
   git clone ${PLUGIN_OPTS} https://github.com/tomtom/tcomment_vim.git
   git clone ${PLUGIN_OPTS} https://github.com/airblade/vim-gitgutter.git
+  git clone ${PLUGIN_OPTS} https://github.com/hdima/python-syntax.git
   setup_you_complete_me
 }
 
