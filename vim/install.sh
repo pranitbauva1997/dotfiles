@@ -62,7 +62,7 @@ vim_plugins() {
 setup_you_complete_me() {
   cd ${YOU_COMPLETE_ME_DIR}
   git submodule update --init --recursive
-  python3 install.sh -all
+  python3 install.py -all
 }
 
 all() {
