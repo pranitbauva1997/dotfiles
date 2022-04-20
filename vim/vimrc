@@ -180,3 +180,11 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+" Elm
+let g:ycm_semantic_triggers = {
+     \ 'elm' : ['.'],
+     \}
+let g:elm_format_autosave = 1
+let g:elm_setup_keybindings = 1
+let g:elm_format_fail_silently = 0
+
