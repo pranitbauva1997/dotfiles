@@ -56,6 +56,7 @@ vim_plugins() {
   git clone ${PLUGIN_OPTS} https://github.com/hdima/python-syntax.git
   git clone ${PLUGIN_OPTS} https://github.com/Xuyuanp/nerdtree-git-plugin.git
   git clone ${PLUGIN_OPTS} https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
+  git clone ${PLUGIN_OPTS} https://github.com/ervandew/supertab.git
   setup_you_complete_me
 }
 

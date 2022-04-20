@@ -10,7 +10,7 @@ sudo pacman -S vim cmake aria2 xclip alacritty \
     ttf-ubuntu-font-family ttf-anonymous-pro ufw \
     gst-libav libdvdnav fuse-exfat libvorbis \
     libdvdcss lame libmpeg2 libtheora libxv libdvdread \
-    gstreamer deja-dup
+    gstreamer deja-dup ctags tree nload
 
 # Final manual steps
 # set GRUB_TIMEOUT=0; GRUB_HIDDEN_TIMEOUT=0; GRUB_DEFAULT=saved

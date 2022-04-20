@@ -92,10 +92,6 @@ noremap <Leader>gb :Git blame<CR>
 let g:terraform_fmt_on_save = 1
 let g_terraform_align = 1
 
-" Snippets and Code completion
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<C-l>"
-
 " Closetags Plugin config
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
@@ -170,4 +166,17 @@ let python_highlight_all = 1
 
 " NERDTree Mappings
 noremap <Leader>n :NERDTreeToggle<CR>
+
+" Tags
+noremap <C-w>[ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
