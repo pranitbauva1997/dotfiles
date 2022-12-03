@@ -10,7 +10,8 @@ sudo pacman -S vim cmake aria2 xclip alacritty \
     ttf-ubuntu-font-family ttf-anonymous-pro ufw \
     gst-libav libdvdnav fuse-exfat libvorbis \
     libdvdcss lame libmpeg2 libtheora libxv libdvdread \
-    gstreamer deja-dup ctags tree nload
+    gstreamer deja-dup ctags tree nload github-cli youtube-dl \
+    ncdu yt-dlp
 
 # Final manual steps
 # set GRUB_TIMEOUT=0; GRUB_HIDDEN_TIMEOUT=0; GRUB_DEFAULT=saved
@@ -108,6 +109,12 @@ cd ~/Sofwares/postman-bin
 makepkg -si
 cd ~
 
+git clone https://aur.archlinux.org/sioyek-git.git \
+    Softwares/sioyek
+cd ~/Softwares/sioyek
+makepkg -si
+cd ~
+
 # "Normal" user software
 
 sudo pacman -S libreoffice-fresh
@@ -137,6 +144,35 @@ cd ~/Softwares/unetbootin
 makepkg -si
 cd ~
 
+
 # Remove orphans
 # sudo pacman -Rns $(pacman -Qtdq)
+
+# GitHub CLI extensions
+# https://github.com/joaom00/gh-b
+gh extension install joaom00/gh-b
+
+# https://github.com/dlvhdr/gh-dash
+gh extension install dlvhdr/gh-dash
+
+# https://github.com/yusukebe/gh-markdown-preview
+gh extension install yusukebe/gh-markdown-preview
+
+# https://github.com/thatvegandev/gh-eco
+gh extension install thatvegandev/gh-eco
+
+# https://github.com/k1LoW/gh-grep
+gh extension install k1LoW/gh-grep
+
+# https://github.com/gennaro-tedesco/gh-s
+gh extension install gennaro-tedesco/gh-s
+
+# https://github.com/gennaro-tedesco/gh-i
+gh extension install gennaro-tedesco/gh-i
+
+# https://github.com/meiji163/gh-notify
+gh extension install meiji163/gh-notify
+
+# https://github.com/heaths/gh-label
+gh extension install heaths/gh-label
 
