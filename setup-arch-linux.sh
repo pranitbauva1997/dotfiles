@@ -4,14 +4,14 @@ mkdir -p ~/Softwares
 
 sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     a52dec faac faad2 flac jasper lame libdca \
-    libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 \
-    xvidcore vlc p7zip util-linux libxcrypt libxcrypt-compat \
-    mythes-en gst-plugins-good ttf-droid jdk11-openjdk icedtea-web \
+    libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 x265 \
+    xvidcore p7zip util-linux libxcrypt libxcrypt-compat \
+    mythes-en gst-plugins-good ttf-droid jdk17-openjdk icedtea-web \
     ttf-ubuntu-font-family ttf-anonymous-pro ufw \
     gst-libav libdvdnav fuse-exfat libvorbis \
     libdvdcss lame libmpeg2 libtheora libxv libdvdread \
     gstreamer deja-dup ctags tree nload btop jdk17-openjdk dbeaver \
-    keepassxc code obsidian gedit
+    keepassxc code obsidian gedit svt-av1
 
 # Network tools
 sudo pacman -S --noconfirm traceroute nmap wireshark-qt
@@ -124,6 +124,12 @@ yay -S --noconfirm sioyek
 
 sudo pacman -S --noconfirm neomutt
 
+# Audio/Video Software
+
+sudo pacman -S ffmpeg mlt
+
+yay -S --noconfirm alac-git
+
 # Jet Brains IDEs
 yay -S --noconfirm pycharm-professional
 
@@ -141,3 +147,4 @@ yay -S --noconfirm pycharm-professional
 # Setup Rclone
 
 # Setup firefox
+
