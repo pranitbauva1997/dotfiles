@@ -2,7 +2,7 @@
 
 mkdir -p ~/Softwares
 
-sudo pacman -S vim cmake aria2 xclip alacritty \
+sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     a52dec faac faad2 flac jasper lame libdca \
     libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 \
     xvidcore vlc p7zip util-linux libxcrypt libxcrypt-compat \
@@ -10,7 +10,11 @@ sudo pacman -S vim cmake aria2 xclip alacritty \
     ttf-ubuntu-font-family ttf-anonymous-pro ufw \
     gst-libav libdvdnav fuse-exfat libvorbis \
     libdvdcss lame libmpeg2 libtheora libxv libdvdread \
-    gstreamer deja-dup ctags tree nload
+    gstreamer deja-dup ctags tree nload btop jdk17-openjdk dbeaver \
+    keepassxc code obsidian gedit
+
+# Network tools
+sudo pacman -S --noconfirm traceroute nmap wireshark-qt
 
 # Final manual steps
 # set GRUB_TIMEOUT=0; GRUB_HIDDEN_TIMEOUT=0; GRUB_DEFAULT=saved
@@ -28,10 +32,11 @@ sudo pacman -S --noconfirm rustup
 rustup default stable
 
 # Haskell
-curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+# curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 
 # Node.js
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+yay -S --noconfirm nvm
+
 nvm install v14
 npm install -g npm
 npm install -g typescript
@@ -50,6 +55,21 @@ chmod +x elm
 sudo mv elm /usr/local/bin/
 rm -f elm.gz
 
+# Databases
+
+sudo pacman -S --noconfirm postgres
+
+sudo pacman -S --noconfirm redis
+
+# TODO: install TimescaleDB
+
+
+## Setup Postgres
+
+## Setup TimescaleDB
+
+## Setup Redis
+
 # Infrastructure Tools
 
 # Docker
@@ -62,81 +82,62 @@ mkdir -p ~/.docker
 cp docker/config.json ~/.docker/config.json
 
 # AWS CLI
-sudo pacman -S aws-cli
+sudo pacman -S --noconfirm aws-cli
 
 # Google Cloud SDK
-git clone https://aur.archlinux.org/google-cloud-sdk.git \
-    Softwares/google-cloud-sdk
-cd ~/Softwares/google-cloud-sdk
-makepkg -si
-cd ~
+yay -S --noconfirm google-cloud-sdk
 
 # Terraform
-sudo pacman -S terraform
+sudo pacman -S --noconfirm terraform
 
 # Kubernetes (exclude the cluster running tools)
-sudo pacman -S kubectl kubectx k9s
+sudo pacman -S --noconfirm kubectl kubectx k9s
+
+# Below command is error prone, run manually
+# yay -S --noconfirm lens
 
 # Other developer tools
 
 # Slack
-git clone https://aur.archlinux.org/unetbootin.git \
-    Softwares/unetbootin
-cd ~/Softwares/unetbootin
-makepkg -si
-cd ~
-
-git clone https://aur.archlinux.org/slack-desktop.git \
-    Softwares/slack-desktop
-cd ~/Softwares/slack-desktop
-makepkg -si
-cd ~
+yay -S --noconfirm slack-desktop
 
 # Tor Browser
-git clone https://aur.archlinux.org/tor-browser.git \
-    Softwares/tor-browser
-cd ~/Softwares/tor-browser
-gpg --auto-key-locate nodefault,wkd --locate-keys torbrowser@torproject.org
-makepkg -si
-cd ~
+sudo pacman -S --noconfirm torbrowser-launcher
 
 # Postman
+yay -S --noconfirm postman-bin
 
-git clone https://aur.archlinux.org/postman-bin.git \
-    Softwares/postman-bin
-cd ~/Sofwares/postman-bin
-makepkg -si
-cd ~
+# Insomnia
+yay -S --noconfirm insomnia
 
 # "Normal" user software
 
-sudo pacman -S libreoffice-fresh
+sudo pacman -S --noconfirm libreoffice-fresh vlc chromium gparted
 
-curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | gpg --import -
-git clone https://aur.archlinux.org/spotify.git \
-    Softwares/spotify
-cd ~/Softwares/spotify
-makepkg -si
-cd ~
+yay -S --noconfirm spotify
 
-git clone https://aur.archlinux.org/telegram-desktop-bin.git \
-    Softwares/telegram-desktop-bin.git
-cd ~/Softwares/telegram-desktop-bin
-makepkg -si
-cd ~
+yay -S --noconfirm telegram-desktop
 
-git clone https://aur.archlinux.org/zoom.git \
-    Softwares/zoom
-cd ~/Sofwares/zoom
-makepkg -si
-cd ~
+yay -S --noconfirm zoom
 
-git clone https://aur.archlinux.org/unetbootin.git \
-    Softwares/unetbootin
-cd ~/Softwares/unetbootin
-makepkg -si
-cd ~
+yay -S --noconfirm sioyek
+
+sudo pacman -S --noconfirm neomutt
+
+# Jet Brains IDEs
+yay -S --noconfirm pycharm-professional
 
 # Remove orphans
 # sudo pacman -Rns $(pacman -Qtdq)
 
+# Setup HDD
+
+# Setup Neomutt
+
+### Tip: Be careful to not set PGP passphrase or find a workaround
+
+## Run mbsync -a 
+
+# Setup Rclone
+
+# Setup firefox
