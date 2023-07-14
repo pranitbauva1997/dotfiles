@@ -136,7 +136,27 @@ yay -S --noconfirm pycharm-professional
 # Remove orphans
 # sudo pacman -Rns $(pacman -Qtdq)
 
-# Setup HDD
+# HDD
+# all new drives to /drives which has the permissions
+# drwxr-xr-x 3 root root 4096 Jul 12 23:22 internalfirst2tb
+# Cmd ref: chmod -R 777 /drives
+# /etc/fstab entry
+# <file system>             <mount point>  <type>  <options>  <dump>  <pass>
+# UUID=9090-1059                            /efi           vfat    defaults,noatime 0 2
+# UUID=51b25633-fa3b-421e-90a0-dc2c780711ea /              ext4    defaults,noatime 0 1
+# tmpfs                                     /tmp           tmpfs   defaults,noatime,mode=1777 0 0
+# UUID=4172e0dc-9232-4880-bca2-d72be1336aec /drives/internalfirst2tb ext4 defaults 0 0
+
+# Setup Neovim
+# Important to make good choices.
+# Long-term vim/neovim strategy:
+#  - Reduce vim to very basic plugins (strip LSP/code check/syntax
+#    check/programming language specific related plugins)
+#  - Neovim to make same very basic plugins with all the programming
+# This way for generic editing I can still stick to vim and keep it
+# so minimalistic yet powerful that I can install it on any remote machine
+# For neovim, it's critical to avoid getting into Lua aspects and sticking
+# to vim like things.
 
 # Setup Neomutt
 
