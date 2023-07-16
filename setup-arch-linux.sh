@@ -11,6 +11,7 @@ sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     gst-libav libdvdnav fuse-exfat libvorbis \
     libdvdcss lame libmpeg2 libtheora libxv libdvdread \
     gstreamer deja-dup ctags tree nload btop jdk17-openjdk dbeaver \
+    github-cli ncdu yt-dlp \
     keepassxc code obsidian gedit svt-av1 bat starship
 
 # Network tools
@@ -110,6 +111,12 @@ yay -S --noconfirm postman-bin
 # Insomnia
 yay -S --noconfirm insomnia
 
+git clone https://aur.archlinux.org/sioyek-git.git \
+    Softwares/sioyek
+cd ~/Softwares/sioyek
+makepkg -si
+cd ~
+
 # "Normal" user software
 
 sudo pacman -S --noconfirm libreoffice-fresh vlc chromium gparted
@@ -132,6 +139,7 @@ yay -S --noconfirm alac-git
 
 # Jet Brains IDEs
 yay -S --noconfirm pycharm-professional
+
 
 # Remove orphans
 # sudo pacman -Rns $(pacman -Qtdq)
@@ -167,4 +175,32 @@ yay -S --noconfirm pycharm-professional
 # Setup Rclone
 
 # Setup firefox
+
+# GitHub CLI extensions
+# https://github.com/joaom00/gh-b
+gh extension install joaom00/gh-b
+
+# https://github.com/dlvhdr/gh-dash
+gh extension install dlvhdr/gh-dash
+
+# https://github.com/yusukebe/gh-markdown-preview
+gh extension install yusukebe/gh-markdown-preview
+
+# https://github.com/thatvegandev/gh-eco
+gh extension install thatvegandev/gh-eco
+
+# https://github.com/k1LoW/gh-grep
+gh extension install k1LoW/gh-grep
+
+# https://github.com/gennaro-tedesco/gh-s
+gh extension install gennaro-tedesco/gh-s
+
+# https://github.com/gennaro-tedesco/gh-i
+gh extension install gennaro-tedesco/gh-i
+
+# https://github.com/meiji163/gh-notify
+gh extension install meiji163/gh-notify
+
+# https://github.com/heaths/gh-label
+gh extension install heaths/gh-label
 
