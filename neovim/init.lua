@@ -40,6 +40,10 @@ P.S. You can delete this when you're done too. It's your config now :)
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
@@ -226,7 +230,19 @@ require('lazy').setup({
     event = {"CmdlineEnter"},
     ft = {"go", 'gomod'},
     build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
-  }
+  },
+
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+  },
+
+  {
+    "nvim-tree/nvim-tree.lua",
+  },
+
+  {
+    "nvim-tree/nvim-web-devicons",
+  },
 
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
@@ -347,19 +363,21 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
-vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+vim.keymap.set('n', '<leader>sgf', require('telescope.builtin').git_files, { desc = '[S]earch [G]it [F]iles' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
+vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
+
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
 	ensure_installed = {
-		'bash', 'c', 'cpp', 'cmake', 'css', 'dart', 'diff',
+		'astro', 'bash', 'c', 'cpp', 'cmake', 'css', 'dart', 'diff',
 	  'dockerfile', 'go', 'git_config', 'git_rebase', 'gitcommit', 'gitignore',
 		'gomod', 'gosum', 'gowork', 'haskell', 'html', 'htmldjango', 'http',
 		'javascript', 'java', 'json', 'ledger', 'make', 'markdown', 'markdown_inline',
@@ -612,3 +630,34 @@ parser_config.zimbu = {
   },
   filetype = "zu", -- if filetype does not match the parser name
 }
+
+local null_ls = require("null-ls")
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+null_ls.setup({
+  sources = {
+    null_ls.builtins.formatting.goimports_reviser.with({}),
+    null_ls.builtins.formatting.gofumpt,
+    null_ls.builtins.formatting.gofumpt,
+  },
+  on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+      vim.api.nvim_clear_autocmds({
+        group = augroup,
+        buffer = bufnr,
+      })
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = bufnr })
+        end
+      })
+    end
+  end,
+})
+
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+

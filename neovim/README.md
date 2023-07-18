@@ -2,6 +2,7 @@
 
 ```
 mkdir -p ~/.config/nvim
+mkdir -p ~/projects/tree-sitter-zimbu
 ```
 
 Copy `init.lua` to `~/.config/nvim/`.
