@@ -191,6 +191,44 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  {
+    "mfussenegger/nvim-dap",
+  },
+
+  {
+    "leoluz/nvim-dap-go",
+    ft = "go",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function(_, opts)
+      require("dap-go").setup(opts)
+    end
+  },
+
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = "mfussenegger/nvim-dap",
+  },
+
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    dependencies = "mfussenegger/nvim-dap",
+  },
+
+  {
+    "ray-x/go.nvim",
+    dependencies = {  -- optional packages
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = {"CmdlineEnter"},
+    ft = {"go", 'gomod'},
+    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+  }
+
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -248,6 +286,9 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+vim.o.number = true
+vim.o.relativenumber = true
+
 -- [[ Basic Keymaps ]]
 
 -- Keymaps for better default experience
@@ -287,6 +328,10 @@ require('onedark').setup {
 }
 
 require('onedark').load()
+
+require('dapui').setup()
+
+require("nvim-dap-virtual-text").setup()
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -388,6 +433,14 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+vim.api.nvim_set_keymap('n', '<leader>db', '<Cmd>lua require"dap".toggle_breakpoint()<CR>', { noremap = true, silent = true, desc = 'Toggle debug breakpoint' })
+vim.api.nvim_set_keymap('n', '<leader>dc', '<Cmd>lua require"dap".continue()<CR>', { noremap = true, silent = true, desc = 'Debug continue' })
+vim.api.nvim_set_keymap('n', '<leader>dso', '<Cmd>lua require"dap".step_over()<CR>', { noremap = true, silent = true, desc = 'Debug step over' })
+vim.api.nvim_set_keymap('n', '<leader>dsi', '<Cmd>lua require"dap".step_into()<CR>', { noremap = true, silent = true, desc = 'Debug step into' })
+vim.api.nvim_set_keymap('n', '<leader>drpl', '<Cmd>lua require"dap".step_into()<CR>', { noremap = true, silent = true, desc = 'Debug REPL open' })
+vim.api.nvim_set_keymap('n', '<leader>dus', '<Cmd>lua require"dapui".toggle()<CR>', { noremap = true, silent = true, desc = 'Debug UI' })
+vim.api.nvim_set_keymap('n', '<leader>dt', '<Cmd>lua require"dap-go".debug_test()<CR>', { noremap = true, silent = true, desc = 'Debug Test' })
+
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
@@ -440,7 +493,17 @@ end
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
   clangd = {},
-  gopls = {},
+  gopls = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+      gofumpt = true,
+    },
+  },
   pyright = {},
   rust_analyzer = {},
   tsserver = {},
@@ -454,7 +517,9 @@ local servers = {
 }
 
 -- Setup neovim lua configuration
-require('neodev').setup()
+require('neodev').setup({
+  library = { plugins = { "nvim-dap-ui" }, types = true},
+})
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -476,6 +541,13 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.go',
+  callback = function()
+    vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
+  end
+})
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
