@@ -121,6 +121,8 @@ cd ~
 
 sudo pacman -S --noconfirm libreoffice-fresh vlc chromium gparted
 
+yay -S --noconfirm brave-bin
+
 yay -S --noconfirm spotify
 
 yay -S --noconfirm telegram-desktop
@@ -133,7 +135,15 @@ sudo pacman -S --noconfirm neomutt
 
 # Audio/Video Software
 
-sudo pacman -S ffmpeg mlt
+sudo pacman -S --noconfirm ffmpeg mlt
+
+# Image editing
+
+sudo pacman -S --noconfirm gimp
+
+# Video Editing
+
+sudo pacman -S kdenlive
 
 yay -S --noconfirm alac-git
 
