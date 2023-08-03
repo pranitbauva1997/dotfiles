@@ -135,11 +135,12 @@ require('lazy').setup({
 
   {
     -- Theme inspired by Atom
-    'nyoom-engineering/oxocarbon.nvim',
+    'bluz71/vim-moonfly-colors',
+    name = "moonfly",
     priority = 1000,
     config = function()
-			vim.opt.background = "dark"
-      vim.cmd.colorscheme 'oxocarbon'
+      --vim.opt.background = "dark"
+      vim.cmd.colorscheme 'moonfly'
     end,
   },
 
@@ -150,7 +151,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        --theme = 'onedark',
         component_separators = '|',
         section_separators = '',
       },
@@ -340,11 +341,11 @@ require('telescope').setup {
   },
 }
 
-require('onedark').setup {
-  style = 'deep'
-}
+--require('onedark').setup {
+--  style = 'deep'
+--#}
 
-require('onedark').load()
+--require('moonfly').load()
 
 require('dapui').setup()
 
@@ -364,8 +365,8 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
-vim.keymap.set('n', '<leader>sgf', require('telescope.builtin').git_files, { desc = '[S]earch [G]it [F]iles' })
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>sf', require('telescope.builtin').git_files, { desc = '[S]earch [G]it [F]iles' })
+vim.keymap.set('n', '<leader>sff', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })

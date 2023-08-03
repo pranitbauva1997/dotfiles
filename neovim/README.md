@@ -26,7 +26,7 @@ find in references.
 `<space> ws` for workspace symbols, `<space> ds` for document
 symbols.
 
-`:Mason` install language servers, `i` to accept it.
+`:Mason` install LSP, Linters, DAP, `i` to accept it.
 
 `:Telescope helptags`, has fzf search.
 

@@ -2,3 +2,4 @@
 *.vim
 ctags
 Session.vim
+.luarc.json
