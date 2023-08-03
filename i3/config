@@ -54,8 +54,8 @@ new_window pixel 1
 # hide_edge_borders both
 
 # Set inner/outer gaps
-gaps inner 6
-gaps outer 3
+gaps inner 2
+gaps outer 2
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
@@ -65,6 +65,14 @@ gaps outer 3
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# use workspaces on different displays:
+# where you have to replace DP1/HDMI-0 with the names for your displays
+# you can get from xrandr command
+workspace $ws1 output HDMI-2
+workspace $ws2 output HDMI-2
+workspace $ws3 output DP-1
+workspace $ws4 output DP-1
 
 # switch to workspace
 bindsym $mod+1    workspace  $ws1
@@ -290,39 +298,34 @@ bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3:"
-set $ws4 "4:↕"
-set $ws5 "5:"
+#set $ws4 "4:↕"
+set $ws4 "4"
+#set $ws5 "5:"
+set $ws5 "5"
 set $ws6 "6"
-set $ws7 "7:"
+#set $ws7 "7:"
+set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "0"
 
-# use workspaces on different displays:
-# where you have to replace VGA-0/HDMI-0 with the names for your displays
-# you can get from xrandr command
-#workspace $ws1 output VGA-0
-#workspace $ws2 output VGA-0
-#workspace $ws3 output HDMI-0
-#workspace $ws4 output HDMI-0
-#workspace $ws5 output HDMI-0
-
 # bind program to workspace and focus to them on startup:
-assign [class="Xfce4-terminal"] $ws1
+#assign [class="Xfce4-terminal"] $ws1
 assign [class="(?i)firefox"] $ws2
-# assign [class="Alacritty"] $ws3
-assign [class="Postman"] $ws4
-assign [class="Slack"] $ws5
-assign [class="DBeaver"] $ws6
-assign [class="Thunar"] $ws7
+#assign [class="Alacritty"] $ws3
+#assign [class="Postman"] $ws4
+#assign [class="Slack"] $ws5
+#assign [class="DBeaver"] $ws6
+#assign [class="Thunar"] $ws7
 
 # automatic set focus new window if it opens on another workspace then the current:
-for_window [class="Spotify"] move to workspace $ws9
+#for_window [class="Spotify"] move to workspace $ws9
 for_window [class=Xfce4-terminal] focus
 for_window [class=(?i)firefox] focus
 for_window [class=Thunar] focus
-for_window [class=Thunderbird] focus
+for_window [class=Insomnia] focus
 for_window [class=TelegramDesktop] focus
+for_window [class=Zulip] focus
 
 ##############
 # compositor #
@@ -375,17 +378,17 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
-exec --no-startup-id ~/.screenlayout/monitor.sh
+exec --no-startup-id ~/.screenlayout/default_multi_monitor.sh
 
 # set wallpaper
 exec --no-startup-id sleep 2 && nitrogen --restore
 exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/leaves_dark.jpg
 
 # set powersavings for display:
-exec --no-startup-id xset s 480 dpms 600 600 600
+#exec --no-startup-id xset s 480 dpms 600 600 600
 
 # disable power saving (for example if using xscreensaver)
-#exec --no-startup-id xset -dpms
+exec --no-startup-id xset -dpms
 
 # xscreensaver
 # https://www.jwz.org/xscreensaver
@@ -563,3 +566,4 @@ bindsym $mod+t exec rofi -show window \
 #exec --no-startup-id greenclip daemon>/dev/null
 #bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 #		-config ~/.config/rofi/rofidmenu.rasi
+
