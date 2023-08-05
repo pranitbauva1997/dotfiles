@@ -3,6 +3,8 @@
 	email = pranit@bauva.com
 [core]
     editor = vim
+    pager = delta
+
 [alias]
     A = add -A
     a = add
@@ -25,23 +27,48 @@
     remotes = remote --verbose
     contributors = shortlog --summary --numbered
     whoami = config user.email
+
 [push]
     default = current
+
 [pull]
 	ff = only
+
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [url "git@gitlab.com:"]
 	insteadOf = https://gitlab.com/
 [url "git@bitbucket.org:"]
 	insteadOf = https://bitbucket.org/
+
 [commit]
 	verbose = 2
+
 [blame]
     date = short
+
 [branch]
     sort = -committerdate
+
 [status]
     showStash = true
+
 [grep]
     lineNumber = true
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    side-by-side = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default

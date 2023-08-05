@@ -246,6 +246,26 @@ require('lazy').setup({
     "nvim-tree/nvim-web-devicons",
   },
 
+  {
+    "MunifTanjim/nui.nvim",
+  },
+
+  -- ChatGPT plugin
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("chatgpt").setup({
+        api_key_cmd = "pass show api/openapi-work-ironman-neovim",
+      })
+    end,
+  },
+
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -638,6 +658,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
   sources = {
+      null_ls.builtins.formatting.goimports,
     null_ls.builtins.formatting.goimports_reviser.with({}),
     null_ls.builtins.formatting.gofumpt,
     null_ls.builtins.formatting.gofumpt,
