@@ -247,6 +247,27 @@ require('lazy').setup({
   },
 
   {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  },
+
+  {
+    "windwp/nvim-ts-autotag",
+  },
+
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {}, -- this is equalent to setup({}) function
+  },
+
+  {
     "MunifTanjim/nui.nvim",
   },
 
@@ -385,7 +406,7 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer' })
 
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').git_files, { desc = '[S]earch [G]it [F]iles' })
+vim.keymap.set('n', '<leader>sfg', require('telescope.builtin').git_files, { desc = '[S]earch [G]it [F]iles' })
 vim.keymap.set('n', '<leader>sff', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
@@ -398,13 +419,16 @@ vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeToggle<CR>', {noremap = true
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-	ensure_installed = {
-		'astro', 'bash', 'c', 'cpp', 'cmake', 'css', 'dart', 'diff',
-	  'dockerfile', 'go', 'git_config', 'git_rebase', 'gitcommit', 'gitignore',
-		'gomod', 'gosum', 'gowork', 'haskell', 'html', 'htmldjango', 'http',
-		'javascript', 'java', 'json', 'ledger', 'make', 'markdown', 'markdown_inline',
-		'scss', 'sql', 'svelte', 'lua', 'python', 'rust', 'toml', 'tsx', 'vue',
-	  'typescript', 'vimdoc', 'vim'
+    autotag = {
+      enable = true,
+    },
+    ensure_installed = {
+      'astro', 'bash', 'c', 'cpp', 'cmake', 'css', 'dart', 'diff',
+      'dockerfile', 'go', 'git_config', 'git_rebase', 'gitcommit', 'gitignore',
+      'gomod', 'gosum', 'gowork', 'haskell', 'html', 'htmldjango', 'http',
+      'javascript', 'java', 'json', 'ledger', 'make', 'markdown', 'markdown_inline',
+      'scss', 'sql', 'svelte', 'lua', 'python', 'rust', 'toml', 'tsx', 'vue',
+      'typescript', 'vimdoc', 'vim'
   },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
@@ -547,6 +571,17 @@ local servers = {
   pyright = {},
   rust_analyzer = {},
   tsserver = {},
+  cmake = {},
+  cssls = {},
+  docker_compose_language_service = {},
+  dockerls = {},
+  elmls = {},
+  eslint = {},
+  html = {},
+  pyre = {},
+  rust_analyzer = {},
+  terraformls = {},
+  tflint = {},
 
   lua_ls = {
     Lua = {
@@ -585,7 +620,17 @@ mason_lspconfig.setup_handlers {
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = '*.go',
   callback = function()
-    vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
+    vim.lsp.buf.code_action(
+      {
+        context = {
+          only = {
+            'source.organizeImports',
+            'source.addMissingImports',
+            'source.removeUnusedImports',
+          }
+        },
+        apply = true
+      })
   end
 })
 
@@ -658,7 +703,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
   sources = {
-      null_ls.builtins.formatting.goimports,
+    null_ls.builtins.formatting.goimports,
     null_ls.builtins.formatting.goimports_reviser.with({}),
     null_ls.builtins.formatting.gofumpt,
     null_ls.builtins.formatting.gofumpt,
