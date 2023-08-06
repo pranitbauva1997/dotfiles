@@ -8,7 +8,15 @@ files. Use Neovim for IDE.
 
 ### Installation
 
-`curl -sS https://raw.githubusercontent.com/pranitbauva1997/dotfiles/master/vim/install.sh | bash`
+```bash
+curl -sS https://raw.githubusercontent.com/pranitbauva1997/dotfiles/master/vim/install.sh | bash
+```
+
+### Upgrade plugins
+
+```bash
+curl -sS https://raw.githubusercontent.com/pranitbauva1997/dotfiles/master/vim/upgrade.sh | bash
+```
 
 ### Uninstall
 
