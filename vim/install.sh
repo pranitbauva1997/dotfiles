@@ -124,4 +124,12 @@ vim_plugins() {
 }
 
 
-vim_plugins && write_vimrc
+all() {
+  vim_plugins && write_vimrc
+}
+
+case "$1" in
+  --all ) all ; exit; ;;
+  --vimrc-only ) write_vimrc ; exit; ;;
+  * ) echo "invalid argument: $1" ; exit; ;;
+esac

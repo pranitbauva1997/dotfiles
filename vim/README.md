@@ -8,8 +8,16 @@ files. Use Neovim for IDE.
 
 ### Installation
 
+**VimRC ONLY**:
+
 ```bash
-curl -sS https://raw.githubusercontent.com/pranitbauva1997/dotfiles/master/vim/install.sh | bash
+curl -sS https://raw.githubusercontent.com/pranitbauva1997/dotfiles/master/vim/install.sh | bash -s -- --vimrc-only
+```
+
+**Full Vim + Plugins**:
+
+```bash
+curl -sS https://raw.githubusercontent.com/pranitbauva1997/dotfiles/master/vim/install.sh | bash -s -- --all
 ```
 
 ### Upgrade plugins
