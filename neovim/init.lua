@@ -569,7 +569,6 @@ local servers = {
     },
   },
   pyright = {},
-  rust_analyzer = {},
   tsserver = {},
   cmake = {},
   cssls = {},
@@ -582,6 +581,19 @@ local servers = {
   rust_analyzer = {},
   terraformls = {},
   tflint = {},
+  astro = {},
+  awk_ls = {},
+  bashls = {},
+  grammerly = {},
+  helm_ls = {},
+  jq_lsp = {},
+  nginx_language_server = {},
+  ruff_lsp = {},
+  sqlls = {},
+  tailwindcss = {},
+  vimls = {},
+  svelte = {},
+  ansiblels = {},
 
   lua_ls = {
     Lua = {
