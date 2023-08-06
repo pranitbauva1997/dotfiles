@@ -165,26 +165,7 @@ yay -S --noconfirm pycharm-professional
 # tmpfs                                     /tmp           tmpfs   defaults,noatime,mode=1777 0 0
 # UUID=4172e0dc-9232-4880-bca2-d72be1336aec /drives/internalfirst2tb ext4 defaults 0 0
 
-# Setup Neovim
-# Important to make good choices.
-# Long-term vim/neovim strategy:
-#  - Reduce vim to very basic plugins (strip LSP/code check/syntax
-#    check/programming language specific related plugins)
-#  - Neovim to make same very basic plugins with all the programming
-# This way for generic editing I can still stick to vim and keep it
-# so minimalistic yet powerful that I can install it on any remote machine
-# For neovim, it's critical to avoid getting into Lua aspects and sticking
-# to vim like things.
-
-# Setup Neomutt
-
-### Tip: Be careful to not set PGP passphrase or find a workaround
-
-## Run mbsync -a 
-
 # Setup Rclone
-
-# Setup firefox
 
 # GitHub CLI extensions
 # https://github.com/joaom00/gh-b
