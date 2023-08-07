@@ -587,7 +587,6 @@ local servers = {
   grammerly = {},
   helm_ls = {},
   jq_lsp = {},
-  nginx_language_server = {},
   ruff_lsp = {},
   sqlls = {},
   tailwindcss = {},
