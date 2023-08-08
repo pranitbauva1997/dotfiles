@@ -8,3 +8,11 @@ those specific scripts/configurations so as to provide me a handy
 reference at times when I am forgetful.
 
 **Note:** Dotfiles are like underwear, everyone should have their own.
+
+### FAQs
+
+**How to change default application?**
+
+```bash
+xdg-mime default sioyek.desktop application/pdf
+```
