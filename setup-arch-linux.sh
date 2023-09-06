@@ -99,6 +99,10 @@ sudo pacman -S --noconfirm kubectl kubectx k9s
 
 # Other developer tools
 
+# phantomjs
+
+yay -S phantomjs
+
 # Slack
 yay -S --noconfirm slack-desktop
 
