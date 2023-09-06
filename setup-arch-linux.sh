@@ -143,7 +143,7 @@ sudo pacman -S --noconfirm gimp
 
 # Video Editing
 
-sudo pacman -S kdenlive
+sudo pacman -S kdenlive breeze
 
 yay -S --noconfirm alac-git
 
