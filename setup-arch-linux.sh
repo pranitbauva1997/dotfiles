@@ -88,6 +88,9 @@ sudo pacman -S --noconfirm aws-cli
 # Google Cloud SDK
 yay -S --noconfirm google-cloud-sdk
 
+# K6
+yay -S k6-bin
+
 # Terraform
 sudo pacman -S --noconfirm terraform
 
