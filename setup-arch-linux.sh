@@ -89,13 +89,17 @@ sudo pacman -S --noconfirm aws-cli
 yay -S --noconfirm google-cloud-sdk
 
 # K6
-yay -S k6-bin
+yay -S --noconfirm k6-bin
 
 # Terraform
 sudo pacman -S --noconfirm terraform
 
 # Kubernetes (exclude the cluster running tools)
 sudo pacman -S --noconfirm kubectl kubectx k9s
+
+# Nomad
+sudo pacman -S --noconfirm nomad
+
 
 # Below command is error prone, run manually
 # yay -S --noconfirm lens
