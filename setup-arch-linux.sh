@@ -99,7 +99,7 @@ sudo pacman -S --noconfirm terraform
 sudo pacman -S --noconfirm kubectl kubectx k9s
 
 # Nomad
-sudo pacman -S --noconfirm nomad
+sudo pacman -S --noconfirm nomad consul
 
 
 # Below command is error prone, run manually
