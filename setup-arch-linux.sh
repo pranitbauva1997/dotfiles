@@ -75,7 +75,7 @@ sudo pacman -S --noconfirm redis
 # Infrastructure Tools
 
 # Docker
-sudo pacman -S --noconfirm docker docker-compose
+sudo pacman -S --noconfirm docker docker-compose docker-buildx
 sudo systemctl start docker.service
 sudo systemctl enable docker.service
 sudo usermod -aG docker $(whoami)
