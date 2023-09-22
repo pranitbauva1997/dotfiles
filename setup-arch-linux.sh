@@ -139,7 +139,6 @@ yay -S --noconfirm telegram-desktop
 
 yay -S --noconfirm zoom
 
-
 sudo pacman -S --noconfirm neomutt
 
 # Audio/Video Software
@@ -162,6 +161,9 @@ yay -S --noconfirm pycharm-professional
 
 # Remove orphans
 # sudo pacman -Rns $(pacman -Qtdq)
+
+# Clear pacman cache
+sudo pacman -Sc
 
 # HDD
 # all new drives to /drives which has the permissions
