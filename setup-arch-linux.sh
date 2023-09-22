@@ -25,6 +25,7 @@ sudo pacman -S --noconfirm traceroute nmap wireshark-qt
 
 # Python
 sudo pacman -S --noconfirm python-virtualenv python-pip
+
 # Golang
 sudo pacman -S --noconfirm go go-tools
 
@@ -58,7 +59,7 @@ rm -f elm.gz
 
 # Databases
 
-sudo pacman -S --noconfirm postgres
+sudo pacman -S --noconfirm postgresql
 
 sudo pacman -S --noconfirm redis
 
@@ -108,10 +109,10 @@ sudo pacman -S --noconfirm nomad
 
 # phantomjs
 
-yay -S phantomjs
+yay -S --noconfirm phantomjs
 
 # Slack
-yay -S --noconfirm slack-desktop
+yay -S --noconfirm slack tar-desktop
 
 # Tor Browser
 sudo pacman -S --noconfirm torbrowser-launcher
@@ -122,11 +123,9 @@ yay -S --noconfirm postman-bin
 # Insomnia
 yay -S --noconfirm insomnia
 
-git clone https://aur.archlinux.org/sioyek-git.git \
-    Softwares/sioyek
-cd ~/Softwares/sioyek
-makepkg -si
-cd ~
+# Sioyek
+yay -S --noconfirm sioyek
+
 
 # "Normal" user software
 
@@ -140,7 +139,6 @@ yay -S --noconfirm telegram-desktop
 
 yay -S --noconfirm zoom
 
-yay -S --noconfirm sioyek
 
 sudo pacman -S --noconfirm neomutt
 
@@ -154,7 +152,7 @@ sudo pacman -S --noconfirm gimp
 
 # Video Editing
 
-sudo pacman -S kdenlive breeze
+sudo pacman -S --noconfirm kdenlive breeze
 
 yay -S --noconfirm alac-git
 
