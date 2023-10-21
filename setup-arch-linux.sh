@@ -105,6 +105,8 @@ sudo pacman -S --noconfirm kubectl kubectx k9s
 # Nomad
 sudo pacman -S --noconfirm nomad consul
 
+# Packer
+sudo pacman -S --noconfirm packer
 
 # Below command is error prone, run manually
 # yay -S --noconfirm lens
