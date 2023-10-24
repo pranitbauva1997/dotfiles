@@ -11,7 +11,7 @@ sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     gst-libav libdvdnav fuse-exfat libvorbis \
     libdvdcss lame libmpeg2 libtheora libxv libdvdread \
     gstreamer deja-dup ctags tree nload btop jdk17-openjdk dbeaver \
-    github-cli ncdu yt-dlp git-delta blueman \
+    github-cli ncdu yt-dlp git-delta blueman lsof\
     keepassxc code obsidian gedit svt-av1 bat starship
 
 # Bluetooth
