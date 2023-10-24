@@ -108,6 +108,9 @@ sudo pacman -S --noconfirm nomad consul
 # Packer
 sudo pacman -S --noconfirm packer
 
+# Vagrant
+sudo pacman -S --noconfirm vagrant
+
 # Below command is error prone, run manually
 # yay -S --noconfirm lens
 
