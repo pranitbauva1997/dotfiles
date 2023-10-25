@@ -135,6 +135,8 @@ yay -S --noconfirm insomnia
 # Sioyek
 yay -S --noconfirm sioyek
 
+# Bloaty (Google): https://github.com/google/bloaty
+yay -S --noconfirm bloaty
 
 # "Normal" user software
 
