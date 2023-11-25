@@ -3,7 +3,7 @@
 mkdir -p ~/Softwares
 
 sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
-    a52dec faac faad2 flac jasper lame libdca \
+    a52dec faac faad2 flac jasper lame libdca neovim \
     libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 x265 \
     xvidcore p7zip util-linux libxcrypt libxcrypt-compat \
     mythes-en gst-plugins-good ttf-droid jdk17-openjdk icedtea-web \
