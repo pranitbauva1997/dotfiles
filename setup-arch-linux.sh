@@ -10,8 +10,8 @@ sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     ttf-ubuntu-font-family ttf-anonymous-pro ufw \
     gst-libav libdvdnav fuse-exfat libvorbis \
     libdvdcss lame libmpeg2 libtheora libxv libdvdread \
-    gstreamer deja-dup ctags tree nload btop jdk17-openjdk dbeaver \
-    github-cli ncdu yt-dlp git-delta blueman lsof\
+    gstreamer deja-dup ctags tree nload btop dbeaver \
+    github-cli ncdu yt-dlp git-delta blueman lsof \
     keepassxc code obsidian gedit svt-av1 bat starship
 
 # Bluetooth
@@ -140,7 +140,7 @@ yay -S --noconfirm bloaty
 
 # "Normal" user software
 
-sudo pacman -S --noconfirm libreoffice-fresh vlc chromium gparted
+sudo pacman -S --noconfirm libreoffice-fresh vlc chromium gparted gpart
 
 yay -S --noconfirm brave-bin
 
