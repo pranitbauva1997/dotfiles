@@ -169,6 +169,10 @@ yay -S --noconfirm alac-git
 # Jet Brains IDEs
 yay -S --noconfirm pycharm-professional
 
+# Timeshift (only with BTRFS)
+
+sudo pacman -S --noconfirm timeshift
+sudo systemctl enable --now cronie.service
 
 # Remove orphans
 # sudo pacman -Rns $(pacman -Qtdq)
