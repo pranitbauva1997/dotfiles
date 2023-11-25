@@ -174,6 +174,8 @@ yay -S --noconfirm pycharm-professional
 sudo pacman -S --noconfirm timeshift
 sudo systemctl enable --now cronie.service
 
+# Follow steps to setup snapshots in GRUB: https://discovery.endeavouros.com/encrypted-installation/btrfs-with-timeshift-snapshots-on-the-grub-menu/2022/02/
+
 # Remove orphans
 # sudo pacman -Rns $(pacman -Qtdq)
 
