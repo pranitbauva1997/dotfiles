@@ -140,7 +140,7 @@ yay -S --noconfirm bloaty
 
 # "Normal" user software
 
-sudo pacman -S --noconfirm libreoffice-fresh vlc chromium gparted gpart
+sudo pacman -S --noconfirm libreoffice-fresh vlc chromium gparted gpart calibre
 
 yay -S --noconfirm brave-bin
 
