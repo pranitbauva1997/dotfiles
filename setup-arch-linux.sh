@@ -8,7 +8,7 @@ sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     xvidcore p7zip util-linux libxcrypt libxcrypt-compat \
     mythes-en gst-plugins-good ttf-droid jdk17-openjdk icedtea-web \
     ttf-ubuntu-font-family ttf-anonymous-pro ufw \
-    gst-libav libdvdnav fuse-exfat libvorbis \
+    gst-libav libdvdnav fuse-exfat libvorbis rclone \
     libdvdcss lame libmpeg2 libtheora libxv libdvdread \
     gstreamer deja-dup ctags tree nload btop dbeaver \
     github-cli ncdu yt-dlp git-delta blueman lsof tmux \
