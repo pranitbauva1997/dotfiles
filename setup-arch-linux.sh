@@ -111,6 +111,9 @@ sudo pacman -S --noconfirm packer
 # Vagrant
 sudo pacman -S --noconfirm vagrant
 
+# Google Drive Client Insync
+yay -S --noconfirm insync
+
 # Below command is error prone, run manually
 # yay -S --noconfirm lens
 
