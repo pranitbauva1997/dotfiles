@@ -173,6 +173,9 @@ yay -S --noconfirm alac-git
 # Jet Brains IDEs
 yay -S --noconfirm pycharm-professional
 
+# Notes
+yay -S notes
+
 # Timeshift (only with BTRFS)
 
 sudo pacman -S --noconfirm timeshift
