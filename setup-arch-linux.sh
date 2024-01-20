@@ -189,6 +189,9 @@ sudo systemctl enable --now cronie.service
 # Clear pacman cache
 sudo pacman -Sc
 
+# Battery improvement on suspend
+# https://www.reddit.com/r/Ubuntu/comments/k24okb/battery_drain_on_laptop_while_suspended/
+
 # HDD
 # all new drives to /drives which has the permissions
 # drwxr-xr-x 3 root root 4096 Jul 12 23:22 internalfirst2tb
