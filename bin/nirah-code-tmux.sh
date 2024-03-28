@@ -7,7 +7,9 @@ if [ $? != 0 ]
  then
     tmux new-session -s $SESSIONNAME -n script -d
 
-    tmux rename-window -t $SESSIONNAME:0 git
+    tmux rename-window -t $SESSIONNAME:0 zero
+
+    tmux new-window -t $SESSIONNAME -n git
     tmux send-keys -t $SESSIONNAME "cd ~/Codes/nirahapp/core" C-m 
     tmux split-window -h -t $SESSIONNAME
     tmux send-keys -t $SESSIONNAME "cd ~/Codes/nirahapp/nomad-experiments" C-m 

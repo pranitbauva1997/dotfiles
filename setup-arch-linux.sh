@@ -233,3 +233,7 @@ gh extension install meiji163/gh-notify
 # https://github.com/heaths/gh-label
 gh extension install heaths/gh-label
 
+# Root backups
+
+alias root_backup="sudo rsync -aHAXS --exclude={\"/dev/*\",\"/proc/*\",\"/sys/*\",\"/tmp/*\",\"/run/*\",\"/mnt/*\",\"/media/*\",\"/lost+found\",\"/drives/*\",\"/home/*\"} /* /drives/internalfirst2tb/RootBackup/"
+alias root_restore="sudo rsync -aHAXS --exclude={\"/dev/*\",\"/proc/*\",\"/sys/*\",\"/tmp/*\",\"/run/*\",\"/mnt/*\",\"/media/*\",\"/lost+found\",\"/drives/*\",\"/home/*\"} /drives/internalfirst2tb/RootBackup/* /"
