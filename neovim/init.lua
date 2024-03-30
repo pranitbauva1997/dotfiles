@@ -419,23 +419,29 @@ vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeToggle<CR>', {noremap = true
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-    autotag = {
-      enable = true,
-    },
-    ensure_installed = {
-      'astro', 'bash', 'c', 'cpp', 'cmake', 'css', 'dart', 'diff',
-      'dockerfile', 'go', 'git_config', 'git_rebase', 'gitcommit', 'gitignore',
-      'gomod', 'gosum', 'gowork', 'haskell', 'html', 'htmldjango', 'http',
-      'javascript', 'java', 'json', 'ledger', 'make', 'markdown', 'markdown_inline',
-      'scss', 'sql', 'svelte', 'lua', 'python', 'rust', 'toml', 'tsx', 'vue',
-      'typescript', 'vimdoc', 'vim'
+  autotag = {
+    enable = true,
+  },
+  ensure_installed = {
+    'astro', 'bash', 'c', 'cpp', 'cmake', 'css', 'dart', 'diff',
+    'dockerfile', 'go', 'git_config', 'git_rebase', 'gitcommit', 'gitignore',
+    'gomod', 'gosum', 'gowork', 'haskell', 'html', 'htmldjango', 'http',
+    'javascript', 'java', 'json', 'ledger', 'make', 'markdown', 'markdown_inline',
+    'scss', 'sql', 'svelte', 'lua', 'python', 'rust', 'toml', 'tsx', 'vue',
+    'typescript', 'vimdoc', 'vim'
   },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
 
   highlight = { enable = true },
-  indent = { enable = true },
+  indent = { enable = true,
+    html = {
+      shift_width = 2,
+      softtabstop = 2,
+      tabstop = 2,
+    }
+  },
   incremental_selection = {
     enable = true,
     keymaps = {

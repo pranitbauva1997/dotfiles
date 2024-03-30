@@ -235,5 +235,7 @@ gh extension install heaths/gh-label
 
 # Root backups
 
-alias root_backup="sudo rsync -aHAXS --exclude={\"/dev/*\",\"/proc/*\",\"/sys/*\",\"/tmp/*\",\"/run/*\",\"/mnt/*\",\"/media/*\",\"/lost+found\",\"/drives/*\",\"/home/*\"} /* /drives/internalfirst2tb/RootBackup/"
-alias root_restore="sudo rsync -aHAXS --exclude={\"/dev/*\",\"/proc/*\",\"/sys/*\",\"/tmp/*\",\"/run/*\",\"/mnt/*\",\"/media/*\",\"/lost+found\",\"/drives/*\",\"/home/*\"} /drives/internalfirst2tb/RootBackup/* /"
+alias root_backup="sudo rsync -aHAXS --exclude={\"/dev/*\",\"/proc/*\",\"/sys/*\",\"/tmp/*\",\"/run/*\",\"/mnt/*\",\"/media/*\",\"/lost+found\",\"/drives/*\",\"/home/*\",\"/var/lib/ollama/.ollama/models/*\"} /* /drives/internalfirst2tb/RootBackup/"
+alias root_restore="sudo rsync -aHAXS --exclude={\"/dev/*\",\"/proc/*\",\"/sys/*\",\"/tmp/*\",\"/run/*\",\"/mnt/*\",\"/media/*\",\"/lost+found\",\"/drives/*\",\"/home/*\",\"/var/lib/ollama/.ollama/models/*\"} /drives/internalfirst2tb/RootBackup/* /"
+
+
