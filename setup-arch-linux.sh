@@ -13,7 +13,7 @@ sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     gstreamer deja-dup ctags tree nload btop dbeaver \
     github-cli ncdu yt-dlp git-delta blueman lsof tmux \
     keepassxc code obsidian gedit svt-av1 bat starship \
-    xfce4-clipman-plugin blueberry
+    xfce4-clipman-plugin blueberry git-lfs
 
 # Bluetooth
 sudo systemctl enable bluetooth.service
