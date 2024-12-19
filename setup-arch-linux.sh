@@ -32,7 +32,7 @@ sudo pacman -S --noconfirm traceroute nmap wireshark-qt
 # Python
 sudo pacman -S --noconfirm python-virtualenv python-pip
 
-sudo pacman -S python-numpy python-scipy python-matplotlib python-sympy jupyterlab python-pandas python-pandas-datareader python-numexpr python-bottleneck python-tabulate python-scikit-learn python-numba python-tqdm python-numexpr
+sudo pacman -S python-numpy python-scipy python-matplotlib python-sympy jupyterlab python-pandas python-pandas-datareader python-numexpr python-bottleneck python-tabulate python-scikit-learn python-numba python-tqdm python-numexpr python-joblib
 
 sudo pacman -S python-pytorch-opt python-torchvision
 
