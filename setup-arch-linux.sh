@@ -14,7 +14,7 @@ sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     github-cli ncdu yt-dlp git-delta blueman lsof tmux \
     keepassxc code obsidian gedit svt-av1 bat starship \
     xfce4-clipman-plugin blueberry git-lfs arj bzip3 \
-    lhasa lrzip
+    lhasa lrzip openbsd-netcat pandoc
 
 # Bluetooth
 sudo systemctl enable bluetooth.service
@@ -32,7 +32,10 @@ sudo pacman -S --noconfirm traceroute nmap wireshark-qt
 # Python
 sudo pacman -S --noconfirm python-virtualenv python-pip
 
-sudo pacman -S python-numpy python-scipy python-matplotlib python-sympy jupyterlab python-pandas python-pandas-datareader python-numexpr python-bottleneck python-tabulate python-scikit-learn python-numba python-tqdm python-numexpr python-joblib
+sudo pacman -S python-numpy python-scipy python-matplotlib python-sympy jupyterlab python-pandas \
+    python-pandas-datareader python-numexpr python-bottleneck python-tabulate python-scikit-learn \
+    python-numba python-tqdm python-numexpr python-joblib jupyterlab-lsp jupyterlab-widgets \
+    python-psycopg python-psycopg-pool python-lsp-server texlab pyright
 
 sudo pacman -S python-pytorch-opt python-torchvision
 
