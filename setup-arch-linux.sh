@@ -35,7 +35,8 @@ sudo pacman -S --noconfirm python-virtualenv python-pip
 sudo pacman -S python-numpy python-scipy python-matplotlib python-sympy jupyterlab python-pandas \
     python-pandas-datareader python-numexpr python-bottleneck python-tabulate python-scikit-learn \
     python-numba python-tqdm python-numexpr python-joblib jupyterlab-lsp jupyterlab-widgets \
-    python-psycopg python-psycopg-pool python-lsp-server texlab pyright
+    python-psycopg python-psycopg-pool python-lsp-server texlab pyright python-plotly \
+    python-ipywidgets python-colorcet
 
 sudo pacman -S python-pytorch-opt python-torchvision
 
