@@ -36,7 +36,11 @@ sudo pacman -S python-numpy python-scipy python-matplotlib python-sympy jupyterl
     python-pandas-datareader python-numexpr python-bottleneck python-tabulate python-scikit-learn \
     python-numba python-tqdm python-numexpr python-joblib jupyterlab-lsp jupyterlab-widgets \
     python-psycopg python-psycopg-pool python-lsp-server texlab pyright python-plotly \
-    python-ipywidgets python-colorcet jupyterlab-widgets
+    python-ipywidgets python-colorcet jupyterlab-widgets python-pyarrow python-lz4 python-distributed \
+    python-libarchive-c python-pygit2 python-smbprotocol python-snappy python-hf-xet python-graphviz \
+    python-pydot
+
+yay -S python-hf-transfer python-safetensors
 
 sudo pacman -S python-pytorch-opt python-torchvision
 
