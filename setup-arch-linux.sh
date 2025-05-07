@@ -83,6 +83,8 @@ rm -f elm.gz
 
 sudo pacman -S --noconfirm postgresql
 
+yay -S pg_activity
+
 sudo pacman -S --noconfirm redis
 
 # TODO: install TimescaleDB
