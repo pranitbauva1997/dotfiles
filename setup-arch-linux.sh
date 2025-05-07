@@ -32,14 +32,18 @@ sudo pacman -S --noconfirm traceroute nmap wireshark-qt
 # Python
 sudo pacman -S --noconfirm python-virtualenv python-pip
 
-sudo pacman -S python-numpy python-scipy python-matplotlib python-sympy jupyterlab python-pandas \
-    python-pandas-datareader python-numexpr python-bottleneck python-tabulate python-scikit-learn \
-    python-numba python-tqdm python-numexpr python-joblib jupyterlab-lsp jupyterlab-widgets \
-    python-psycopg python-psycopg-pool python-lsp-server texlab pyright python-plotly \
-    python-ipywidgets python-colorcet jupyterlab-widgets python-pyarrow python-lz4 python-distributed \
-    python-libarchive-c python-pygit2 python-smbprotocol python-snappy python-hf-xet python-graphviz \
-    python-pydot
+sudo pacman -S python-numpy python-scipy python-matplotlib python-sympy \
+    jupyterlab python-pandas python-pandas-datareader python-numexpr \
+    python-bottleneck python-tabulate python-scikit-learn python-numba \
+    python-tqdm python-joblib jupyterlab-lsp jupyterlab-widgets python-psycopg \
+    python-psycopg-pool python-lsp-server texlab pyright python-plotly \
+    python-ipywidgets python-colorcet python-pyarrow python-lz4 python-distributed \
+    python-libarchive-c python-pygit2 python-smbprotocol python-snappy \
+    python-hf-xet python-graphviz python-pydot python-openai python-tiktoken \
+    python-llm python-websockets python-soundfile python-boto3 python-awscrt \
+    python-uvloop python-httpx python-aiofiles
 
+yay -S python-blobfile python-google-genai python-anthropic
 yay -S python-hf-transfer python-safetensors
 
 sudo pacman -S python-pytorch-opt python-torchvision
