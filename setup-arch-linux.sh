@@ -41,7 +41,7 @@ sudo pacman -S python-numpy python-scipy python-matplotlib python-sympy \
     python-libarchive-c python-pygit2 python-smbprotocol python-snappy \
     python-hf-xet python-graphviz python-pydot python-openai python-tiktoken \
     python-llm python-websockets python-soundfile python-boto3 python-awscrt \
-    python-uvloop python-httpx python-aiofiles
+    python-uvloop python-httpx python-aiofiles python-redis python-hiredis
 
 yay -S python-blobfile python-google-genai python-anthropic
 yay -S python-hf-transfer python-safetensors
