@@ -41,7 +41,8 @@ sudo pacman -S python-numpy python-scipy python-matplotlib python-sympy \
     python-libarchive-c python-pygit2 python-smbprotocol python-snappy \
     python-hf-xet python-graphviz python-pydot python-openai python-tiktoken \
     python-llm python-websockets python-soundfile python-boto3 python-awscrt \
-    python-uvloop python-httpx python-aiofiles python-redis python-hiredis
+    python-uvloop python-httpx python-aiofiles python-redis python-hiredis \
+    jupyterlab-lsp
 
 yay -S python-blobfile python-google-genai python-anthropic
 yay -S python-hf-transfer python-safetensors
@@ -199,6 +200,9 @@ yay -S notes
 
 sudo pacman -S --noconfirm timeshift
 sudo systemctl enable --now cronie.service
+
+# Replicate
+yay -S replicate-cog-bin
 
 # Follow steps to setup snapshots in GRUB: https://discovery.endeavouros.com/encrypted-installation/btrfs-with-timeshift-snapshots-on-the-grub-menu/2022/02/
 
