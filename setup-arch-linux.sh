@@ -201,6 +201,9 @@ yay -S notes
 sudo pacman -S --noconfirm timeshift
 sudo systemctl enable --now cronie.service
 
+# Extra browsers
+yay -S google-chrome ungoogled-chromium
+
 # Replicate
 yay -S replicate-cog-bin
 
