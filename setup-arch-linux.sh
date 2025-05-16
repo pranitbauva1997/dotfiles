@@ -14,7 +14,7 @@ sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     github-cli ncdu yt-dlp git-delta blueman lsof tmux \
     keepassxc code obsidian gedit svt-av1 bat starship \
     xfce4-clipman-plugin blueberry git-lfs arj bzip3 \
-    lhasa lrzip openbsd-netcat pandoc
+    lhasa lrzip openbsd-netcat pandoc glab
 
 # Bluetooth
 sudo systemctl enable bluetooth.service
@@ -192,6 +192,10 @@ yay -S --noconfirm alac-git
 
 # Jet Brains IDEs
 yay -S --noconfirm pycharm-professional
+
+# AI IDEs and agents
+
+yay -S claude-code cursor-bin openai-codex
 
 # Notes
 yay -S notes
