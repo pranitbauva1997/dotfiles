@@ -14,7 +14,7 @@ sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     github-cli ncdu yt-dlp git-delta blueman lsof tmux \
     keepassxc code obsidian gedit svt-av1 bat starship \
     xfce4-clipman-plugin blueberry git-lfs arj bzip3 \
-    lhasa lrzip openbsd-netcat pandoc glab
+    lhasa lrzip openbsd-netcat pandoc glab shellcheck
 
 # Bluetooth
 sudo systemctl enable bluetooth.service
@@ -44,7 +44,7 @@ sudo pacman -S python-numpy python-scipy python-matplotlib python-sympy \
     python-uvloop python-httpx python-aiofiles python-redis python-hiredis \
     jupyterlab-lsp
 
-yay -S python-blobfile python-google-genai python-anthropic
+yay -S python-blobfile python-google-genai python-anthropic python-dspy
 yay -S python-hf-transfer python-safetensors
 
 sudo pacman -S python-pytorch-opt python-torchvision
