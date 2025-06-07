@@ -43,7 +43,7 @@ sudo pacman -S python-numpy python-scipy python-matplotlib python-sympy \
     python-hf-xet python-graphviz python-pydot python-openai python-tiktoken \
     python-llm python-websockets python-soundfile python-boto3 python-awscrt \
     python-uvloop python-httpx python-aiofiles python-redis python-hiredis \
-    jupyterlab-lsp
+    jupyterlab-lsp github-cli glab
 
 yay -S python-blobfile python-google-genai python-anthropic python-dspy
 yay -S python-hf-transfer python-safetensors
