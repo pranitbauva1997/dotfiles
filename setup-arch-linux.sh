@@ -15,7 +15,7 @@ sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     keepassxc code obsidian gedit svt-av1 bat starship \
     xfce4-clipman-plugin blueberry git-lfs arj bzip3 \
     lhasa lrzip openbsd-netcat pandoc glab shellcheck \
-    ruff-lsp
+    ruff-lsp github-cli glab
 
 # Bluetooth
 sudo systemctl enable bluetooth.service
@@ -33,22 +33,34 @@ sudo pacman -S --noconfirm traceroute nmap wireshark-qt
 # Python
 sudo pacman -S --noconfirm python-virtualenv python-pip
 
-sudo pacman -S python-numpy python-scipy python-matplotlib python-sympy \
-    jupyterlab python-pandas python-pandas-datareader python-numexpr \
+sudo pacman -S --noconfirm python-pipx python-numpy python-scipy python-matplotlib \
+    python-sympy jupyterlab python-pandas python-pandas-datareader python-numexpr \
     python-bottleneck python-tabulate python-scikit-learn python-numba \
     python-tqdm python-joblib jupyterlab-lsp jupyterlab-widgets python-psycopg \
     python-psycopg-pool python-lsp-server texlab pyright python-plotly \
     python-ipywidgets python-colorcet python-pyarrow python-lz4 python-distributed \
     python-libarchive-c python-pygit2 python-smbprotocol python-snappy \
     python-hf-xet python-graphviz python-pydot python-openai python-tiktoken \
-    python-llm python-websockets python-soundfile python-boto3 python-awscrt \
+    python-websockets python-soundfile python-boto3 python-awscrt \
     python-uvloop python-httpx python-aiofiles python-redis python-hiredis \
-    jupyterlab-lsp github-cli glab
+    jupyterlab-lsp python-streamlit python-mccabe python-pycodestyle python-pydocstyle \
+    python-pyflakes python-pylint python-rope autopep8 flake8 yapf python-whatthepatch \
+    python-awscrt python-anywidget python-polars python-vl-convert python-authlib \
+    python-graphviz python-xarray python-watchfiles python-seaborn python-distributed \
+    python-netcdf4 python-tabulate python-sphinx python-pydantic
 
-yay -S python-blobfile python-google-genai python-anthropic python-dspy
-yay -S python-hf-transfer python-safetensors
+yay -S --noconfirm python-blobfile python-google-genai python-anthropic \
+    python-dspy python-mistralai python-rq python-apscheduler python-llm \
+    python-llm-openrouter python-llm-ollama python-pydeck 
 
-sudo pacman -S python-pytorch-opt python-torchvision
+yay -S --noconfirm python-hf-transfer python-safetensors python-pycocotools
+
+sudo pacman -S --noconfirm python-pytorch-opt python-torchvision
+
+# TexLive
+
+sudo pacman -S texlive mupdf-tools psutils perl-tk biber ed dialog perl-yaml-tiny \
+    perl-file-homedir perl-ipc-system-simple wdiff luametatex fontforge
 
 # Golang
 sudo pacman -S --noconfirm go go-tools
@@ -207,10 +219,10 @@ sudo pacman -S --noconfirm timeshift
 sudo systemctl enable --now cronie.service
 
 # Extra browsers
-yay -S google-chrome ungoogled-chromium
+yay -S --noconfirm google-chrome ungoogled-chromium
 
 # Replicate
-yay -S replicate-cog-bin
+yay -S --noconfirm replicate-cog-bin
 
 # Follow steps to setup snapshots in GRUB: https://discovery.endeavouros.com/encrypted-installation/btrfs-with-timeshift-snapshots-on-the-grub-menu/2022/02/
 
