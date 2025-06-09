@@ -15,7 +15,7 @@ sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     keepassxc code obsidian gedit svt-av1 bat starship \
     xfce4-clipman-plugin blueberry git-lfs arj bzip3 \
     lhasa lrzip openbsd-netcat pandoc glab shellcheck \
-    ruff-lsp github-cli glab
+    ruff-lsp github-cli glab pdftk pdfarranger
 
 # Bluetooth
 sudo systemctl enable bluetooth.service
