@@ -208,7 +208,7 @@ yay -S --noconfirm pycharm-professional
 
 # AI IDEs and agents
 
-yay -S claude-code cursor-bin openai-codex
+yay -S claude-code cursor-bin openai-codex warp-terminal-bin windsurf
 
 # Notes
 yay -S notes
