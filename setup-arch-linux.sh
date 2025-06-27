@@ -16,7 +16,7 @@ sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     xfce4-clipman-plugin blueberry git-lfs arj bzip3 \
     lhasa lrzip openbsd-netcat pandoc glab shellcheck \
     ruff-lsp github-cli glab pdftk pdfarranger foliate \
-    espeak-ng festival
+    espeak-ng festival expac
 
 # Bluetooth
 sudo systemctl enable bluetooth.service
@@ -48,11 +48,18 @@ sudo pacman -S --noconfirm python-pipx python-numpy python-scipy python-matplotl
     python-pyflakes python-pylint python-rope autopep8 flake8 yapf python-whatthepatch \
     python-awscrt python-anywidget python-polars python-vl-convert python-authlib \
     python-graphviz python-xarray python-watchfiles python-seaborn python-distributed \
-    python-netcdf4 python-tabulate python-sphinx python-pydantic
+    python-netcdf4 python-tabulate python-sphinx python-pydantic python-django \
+    python-dpcontracts python-faker python-libcst python-watchdog python-psycopg2 \
+    python-zopfli python-xlwt python-xlsxwriter python-xlrd python-fastimport \
+    python-xdg python-wxpython python-webcolors python-uri-template python-unidecode \
+    python-unicodedata2 python-uharfbuzz python-tzdata python-dask python-distributed \
+    python-email-validator python-graphviz python-jax python-jaxlib python-flax \
+    python-pyaudio python-simpleaudio python-paddlepaddle
 
 yay -S --noconfirm python-blobfile python-google-genai python-anthropic \
     python-dspy python-mistralai python-rq python-apscheduler python-llm \
-    python-llm-openrouter python-llm-ollama python-pydeck 
+    python-llm-openrouter python-llm-ollama python-pydeck python-weaviate-client \
+    python-uharfbuzz python-gradio
 
 yay -S --noconfirm python-hf-transfer python-safetensors python-pycocotools
 
