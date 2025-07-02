@@ -133,7 +133,7 @@ cp docker/config.json ~/.docker/config.json
 sudo pacman -S --noconfirm aws-cli
 
 # Google Cloud SDK
-yay -S --noconfirm google-cloud-sdk
+yay -S --noconfirm google-cloud-cli google-cloud-cli-bq google-cloud-cli-gsutil python-crcmod
 
 # K6
 yay -S --noconfirm k6-bin
