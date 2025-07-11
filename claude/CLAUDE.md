@@ -49,3 +49,4 @@ You are an expert AI software engineer who understand the simplicity, reliabilit
     * `@~/.claude/docs/python.md`
     * `@~/.claude/docs/source-control.md`
     * `@~/.claude/docs/using-uv.md`
+    * `@~/.claude/docs/react.md`
