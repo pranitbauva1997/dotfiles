@@ -1,184 +1,60 @@
-### uv Field Manual (Code‑Gen Ready, Bootstrap‑free)
+# UV package manager for python
 
-*Assumption: `uv` is already installed and available on `PATH`.*
+<preferences>
+</preferences>
 
----
+<commands>
+  <command>`uv --version`: verify installation; exits 0</command>
+  <command>`uv init myproj`: create pyproject.toml + .venv</command>
+  <command>`uv add ruff pytest httpx`: fast resolver + lock update</command>
+  <command>`uv run pytest -q`: run tests in project venv</command>
+  <command>`uv lock`: refresh uv.lock (if needed)</command>
+  <command>`uv sync --locked`: reproducible install (CI‑safe)</command>
+  <command>`uv run hello.py`: zero‑dep script, auto‑env</command>
+  <command>`uv add --script hello.py rich`: embeds dep metadata</command>
+  <command>`uv run --with rich hello.py`: transient deps, no state</command>
+  <command>`uvx ruff check .`: ephemeral run</command>
+  <command>`uv tool install ruff`: user‑wide persistent install</command>
+  <command>`uv tool list`: audit installed CLIs</command>
+  <command>`uv tool update --all`: keep them fresh</command>
+  <command>`uv python install 3.10 3.11 3.12`: Install multiple Python versions</command>
+  <command>`uv python pin 3.12`: writes .python-version</command>
+  <command>`uv run --python 3.10 script.py`: Run a script with a specific Python version</command>
+  <command>`uv venv .venv`: Create a virtual environment</command>
+  <command>`uv pip install -r requirements.txt`: Install from a requirements file</command>
+  <command>`uv pip sync -r requirements.txt`: deterministic install</command>
+  <command>`uv cache dir`: show path + stats</command>
+  <command>`uv cache info`: show path + stats</command>
+  <command>`uv cache clean`: wipe wheels & sources</command>
+  <command>`uv python install`: obey .python-version</command>
+  <command>`uv sync --locked`: restore env</command>
+  <command>`uv run pytest -q`: Run tests</command>
+  <command>`uv sync --production --locked`: Install production dependencies from lockfile</command>
+  <command>`uv run python -m myapp`: Run the application module</command>
+  <command>`uv venv`: One‑Shot Replacement for `python -m venv`</command>
+  <command>`uv pip install`: One‑Shot Replacement for `pip install`</command>
+  <command>`uv pip compile`: One‑Shot Replacement for `pip-tools compile`</command>
+  <command>`uvx`: One‑Shot Replacement for `pipx run`</command>
+  <command>`uv tool run`: One‑Shot Replacement for `pipx run`</command>
+  <command>`uv add`: One‑Shot Replacement for `poetry add`</command>
+  <command>`uv python install`: One‑Shot Replacement for `pyenv install`</command>
+  <command>`uv python install X.Y`: Resolution for `Python X.Y not found`</command>
+  <command>`uv cache clean`: Part of the resolution for needing a fresh environment</command>
+  <command>`uv sync`: Part of the resolution for needing a fresh environment</command>
+  <command>`uv ...`: Used for debugging when still stuck</command>
+  <command>`uv init myproj`: new project</command>
+  <command>`uv add requests rich`: add dependencies</command>
+  <command>`uv run python -m myproj ...`: test run</command>
+  <command>`uv lock`: lock + CI restore</command>
+  <command>`uv sync --locked`: lock + CI restore</command>
+  <command>`uv add --script tool.py httpx`: adhoc script</command>
+  <command>`uv run tool.py`: adhoc script</command>
+  <command>`uvx ruff check .`: manage CLI tools</command>
+  <command>`uv tool install pre-commit`: manage CLI tools</command>
+  <command>`uv python install 3.12`: Python versions</command>
+  <command>`uv python pin 3.12`: Python versions</command>
+</commands>
 
-## 0 — Sanity Check
-
-```bash
-uv --version               # verify installation; exits 0
-```
-
-If the command fails, halt and report to the user.
-
----
-
-## 1 — Daily Workflows
-
-### 1.1 Project ("cargo‑style") Flow
-
-```bash
-uv init myproj                     # ① create pyproject.toml + .venv
-cd myproj
-uv add ruff pytest httpx           # ② fast resolver + lock update
-uv run pytest -q                   # ③ run tests in project venv
-uv lock                            # ④ refresh uv.lock (if needed)
-uv sync --locked                   # ⑤ reproducible install (CI‑safe)
-```
-
-### 1.2 Script‑Centric Flow (PEP 723)
-
-```bash
-echo 'print("hi")' > hello.py
-uv run hello.py                    # zero‑dep script, auto‑env
-uv add --script hello.py rich      # embeds dep metadata
-uv run --with rich hello.py        # transient deps, no state
-```
-
-### 1.3 CLI Tools (pipx Replacement)
-
-```bash
-uvx ruff check .                   # ephemeral run
-uv tool install ruff               # user‑wide persistent install
-uv tool list                       # audit installed CLIs
-uv tool update --all               # keep them fresh
-```
-
-### 1.4 Python Version Management
-
-```bash
-uv python install 3.10 3.11 3.12
-uv python pin 3.12                 # writes .python-version
-uv run --python 3.10 script.py
-```
-
-### 1.5 Legacy Pip Interface
-
-```bash
-uv venv .venv
-source .venv/bin/activate
-uv pip install -r requirements.txt
-uv pip sync   -r requirements.txt   # deterministic install
-```
-
----
-
-## 2 — Performance‑Tuning Knobs
-
-| Env Var                   | Purpose                 | Typical Value |
-| ------------------------- | ----------------------- | ------------- |
-| `UV_CONCURRENT_DOWNLOADS` | saturate fat pipes      | `16` or `32`  |
-| `UV_CONCURRENT_INSTALLS`  | parallel wheel installs | `CPU_CORES`   |
-| `UV_OFFLINE`              | enforce cache‑only mode | `1`           |
-| `UV_INDEX_URL`            | internal mirror         | `https://…`   |
-| `UV_PYTHON`               | pin interpreter in CI   | `3.11`        |
-| `UV_NO_COLOR`             | disable ANSI coloring   | `1`           |
-
-Other handy commands:
-
-```bash
-uv cache dir && uv cache info      # show path + stats
-uv cache clean                     # wipe wheels & sources
-```
-
----
-
-## 3 — CI/CD Recipes
-
-### 3.1 GitHub Actions
-
-```yaml
-# .github/workflows/test.yml
-name: tests
-on: [push]
-jobs:
-  pytest:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v5       # installs uv, restores cache
-      - run: uv python install            # obey .python-version
-      - run: uv sync --locked             # restore env
-      - run: uv run pytest -q
-```
-
-### 3.2 Docker
-
-```dockerfile
-FROM ghcr.io/astral-sh/uv:0.7.4 AS uv
-FROM python:3.12-slim
-
-COPY --from=uv /usr/local/bin/uv /usr/local/bin/uv
-COPY pyproject.toml uv.lock /app/
-WORKDIR /app
-RUN uv sync --production --locked
-COPY . /app
-CMD ["uv", "run", "python", "-m", "myapp"]
-```
-
----
-
-## 4 — Migration Matrix
-
-| Legacy Tool / Concept | One‑Shot Replacement        | Notes                 |
-| --------------------- | --------------------------- | --------------------- |
-| `python -m venv`      | `uv venv`                   | 10× faster create     |
-| `pip install`         | `uv pip install`            | same flags            |
-| `pip-tools compile`   | `uv pip compile` (implicit) | via `uv lock`         |
-| `pipx run`            | `uvx` / `uv tool run`       | no global Python req. |
-| `poetry add`          | `uv add`                    | pyproject native      |
-| `pyenv install`       | `uv python install`         | cached tarballs       |
-
----
-
-## 5 — Troubleshooting Fast‑Path
-
-| Symptom                    | Resolution                                                     |
-| -------------------------- | -------------------------------------------------------------- |
-| `Python X.Y not found`     | `uv python install X.Y` or set `UV_PYTHON`                     |
-| Proxy throttling downloads | `UV_HTTP_TIMEOUT=120 UV_INDEX_URL=https://mirror.local/simple` |
-| C‑extension build errors   | `unset UV_NO_BUILD_ISOLATION`                                  |
-| Need fresh env             | `uv cache clean && rm -rf .venv && uv sync`                    |
-| Still stuck?               | `RUST_LOG=debug uv ...` and open a GitHub issue                |
-
----
-
-## 6 — Exec Pitch (30 s)
-
-```text
-• 10–100× faster dependency & env management in one binary.
-• Universal lockfile ⇒ identical builds on macOS / Linux / Windows / ARM / x86.
-• Backed by the Ruff team; shipping new releases ~monthly.
-```
-
----
-
-## 7 — Agent Cheat‑Sheet (Copy/Paste)
-
-```bash
-# new project
-a=$PWD && uv init myproj && cd myproj && uv add requests rich
-
-# test run
-uv run python -m myproj ...
-
-# lock + CI restore
-uv lock && uv sync --locked
-
-# adhoc script
-uv add --script tool.py httpx
-uv run tool.py
-
-# manage CLI tools
-uvx ruff check .
-uv tool install pre-commit
-
-# Python versions
-uv python install 3.12
-uv python pin 3.12
-```
-
----
-
-*End of manual*
+<other_references>
+  Python `@/.claude/docs/python.md`
+</other_references>

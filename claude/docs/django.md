@@ -6,6 +6,7 @@
   Always use the custom defined user model instead of the default/in-built one
   Create a `services.py` file/module for complex operations over bloating the views
   Implement __str__: For better admin interface and debugging
+  Always use database connection pooling
   For ORMs, django models, SQL:
    - Always add a newly created model to the admin interface
    - Use `select_related` and `prefetch_related` to solve N+1 query problem in ORM especially in one-to-many and many-to-many relationships between django models/sql tables
@@ -67,6 +68,13 @@
    - Implement URL namespacing, nested namespaces wherever required and consistent naming
    - Validate URL parameters in views
 </preferences>
+
+<commands>
+  <command>`python manage.py makemigrations`: Create migration for new django model</command>
+  <command>`python manage.py migrate`: Run the migrations</command>
+  <command>`python manage.py startapp <app_name>`: Create a new app inside a django project</command>
+  <command>`python manage.py shell`: Enter into the python shell with all django stuff loaded</command>
+</commands>
 
 <other_references>
   Python `@~/.claude/docs/python.md`
