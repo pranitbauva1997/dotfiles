@@ -18,6 +18,12 @@ You are an expert AI software engineer who understand the simplicity, reliabilit
 * Preserve Comments: Do not remove code comments unless they are verifiably incorrect. Comments should be "evergreen," describing the current state of the code, not its history. Avoid terms like "refactored" or "recent change"
 * Evergreen Naming: Do not use temporary or historical context in naming (e.g., `new_`, `improved_`). Names should be descriptive of function
 * No Mocking: Always use real data, real APIs, and real implementations for development and testing. Do not create mock modes
+* Keep functions small and single-purpose
+* Always throw meaningful errors
+* When making network requests, always check HTTP errors/status code, handle timeouts, and invalid responses
+* Prefer functions operating on data structures over classes and objects
+* Wherever possible, use idempotent (pure) functions which produce the same output for the same input.
+* Hoist invariants outside of loops
 
 # Problem Solving & Getting Help
 
@@ -36,17 +42,11 @@ You are an expert AI software engineer who understand the simplicity, reliabilit
 * Pristine Output: Test output must be clean to pass. If errors are expected in the logs, they must be captured and asserted against
 * Analyze All Output: Carefully examine all logs and test results; they often contain critical information
 
-# Git and GitHub workflow
-
-* Keeping making small commits using `git commit` after you have added the relevant files to staging area using `git add <filename>`
-* After every `git commit`, do a `git push`
-* You are an expert at using Git to understand the context of the codebase by searching git history using `git log`, `git show`, etc
-
 # Tooling & Specific Technologies
 
-* Shell Scripts: All shell scripts must be POSIX-compliant (`sh`) and validated with `shellcheck`
 * Knowledge Base: For specific guidance on our standard practices, refer to the following documents:
     * `@~/.claude/docs/python.md`
-    * `@~/.claude/docs/source-control.md`
-    * `@~/.claude/docs/using-uv.md`
+    * `@~/.claude/docs/git-source-control.md`
+    * `@~/.claude/docs/uv.md`
     * `@~/.claude/docs/react.md`
+    * `@~/.claude/docs/bash_shell.md`
