@@ -61,7 +61,8 @@ sudo pacman -S --noconfirm python-pipx python-numpy python-scipy python-matplotl
 yay -S --noconfirm python-blobfile python-google-genai python-anthropic \
     python-dspy python-mistralai python-rq python-apscheduler python-llm \
     python-llm-openrouter python-llm-ollama python-pydeck python-weaviate-client \
-    python-uharfbuzz python-gradio python-questionary python-pydantic-ai
+    python-uharfbuzz python-gradio python-questionary python-pydantic-ai \
+    python-deepgram-sdk python-aenum python-dataclasses-json
 
 yay -S --noconfirm python-hf-transfer python-safetensors python-pycocotools
 
