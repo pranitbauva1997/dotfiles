@@ -68,6 +68,8 @@ yay -S --noconfirm python-hf-transfer python-safetensors python-pycocotools
 
 sudo pacman -S --noconfirm python-pytorch-opt python-torchvision
 
+yay -S ngrok
+
 # TexLive
 
 sudo pacman -S texlive mupdf-tools psutils perl-tk biber ed dialog perl-yaml-tiny \
