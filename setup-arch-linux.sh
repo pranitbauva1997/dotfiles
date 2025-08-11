@@ -223,6 +223,10 @@ yay -S --noconfirm pycharm-professional
 
 yay -S claude-code cursor-bin openai-codex warp-terminal-bin windsurf
 
+# Android
+# https://g.co/gemini/share/5c96ad8f5db2
+yay -S watchman
+
 # Notes
 yay -S notes
 
