@@ -428,7 +428,22 @@ require('lazy').setup({
       require("nvim-surround").setup({})
     end
   },
-  { "windwp/nvim-ts-autotag" },
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup({
+        filetypes = {
+          "html",
+          "javascript",
+          "typescript",
+          "jsx",
+          "tsx",
+          "svelte",
+          "vue",
+        }
+      })
+    end
+  },
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
