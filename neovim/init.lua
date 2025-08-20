@@ -329,11 +329,10 @@ require('lazy').setup({
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects', 'windwp/nvim-ts-autotag' },
     build = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup {
-        autotag = { enable = true },
         ensure_installed = {
           'astro', 'bash', 'c', 'cpp', 'cmake', 'css', 'dart', 'diff', 'dockerfile', 'go',
           'git_config', 'git_rebase', 'gitcommit', 'gitignore', 'gomod', 'gosum', 'gowork',
@@ -365,6 +364,19 @@ require('lazy').setup({
           },
         },
       }
+
+      -- Configure nvim-ts-autotag
+      require("nvim-ts-autotag").setup({
+        filetypes = {
+          "html",
+          "javascript",
+          "typescript",
+          "jsx",
+          "tsx",
+          "svelte",
+          "vue",
+        }
+      })
 
       local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
       parser_config.zimbu = {
@@ -426,22 +438,6 @@ require('lazy').setup({
     event = "VeryLazy",
     config = function()
       require("nvim-surround").setup({})
-    end
-  },
-  {
-    "windwp/nvim-ts-autotag",
-    config = function()
-      require("nvim-ts-autotag").setup({
-        filetypes = {
-          "html",
-          "javascript",
-          "typescript",
-          "jsx",
-          "tsx",
-          "svelte",
-          "vue",
-        }
-      })
     end
   },
   {
