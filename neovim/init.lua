@@ -520,5 +520,19 @@ vim.api.nvim_set_keymap('n', '<leader>drpl', '<Cmd>lua require"dap".step_into()<
 vim.api.nvim_set_keymap('n', '<leader>dus', '<Cmd>lua require"dapui".toggle()<CR>', { noremap = true, silent = true, desc = 'Debug UI' })
 vim.api.nvim_set_keymap('n', '<leader>dt', '<Cmd>lua require"dap-go".debug_test()<CR>', { noremap = true, silent = true, desc = 'Debug Test' })
 
+-- [[ Go-specific indentation ]]
+-- Use tabs with width 4 for Go files
+local go_indent_group = vim.api.nvim_create_augroup('GoIndent', { clear = true })
+vim.api.nvim_create_autocmd('FileType', {
+  group = go_indent_group,
+  pattern = 'go',
+  callback = function()
+    vim.bo.softtabstop = 4
+    vim.bo.tabstop = 4
+    vim.bo.shiftwidth = 4
+    vim.bo.expandtab = false
+  end,
+})
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
