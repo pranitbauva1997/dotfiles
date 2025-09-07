@@ -32,6 +32,11 @@ Pristine Output: Test output must be clean to pass. If errors are expected in th
 Analyze All Output: Carefully examine all logs and test results; they often contain critical information
 </preferences>
 
+<tool_use>
+You are given access to Context7 MCP server which you should use to pull documentation into context before attempting to solve a problem.
+When asked to do refactors or searches use the bash tool `ast-grep` which is a code tool for structural search and replace, which helps you write code patterns to locate and modify code.
+</tool_use>
+
 <other_resources>
 Python `@~/.claude/docs/python.md`
 Git Source Control `@~/.claude/docs/git-source-control.md`
