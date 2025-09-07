@@ -230,6 +230,9 @@ yay -S watchman
 # Notes
 yay -S notes
 
+# Typst (document maker)
+sudo pacman -S typst
+
 # Timeshift (only with BTRFS)
 
 sudo pacman -S --noconfirm timeshift
