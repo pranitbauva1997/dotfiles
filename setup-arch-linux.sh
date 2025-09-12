@@ -16,7 +16,8 @@ sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     xfce4-clipman-plugin blueberry git-lfs arj bzip3 \
     lhasa lrzip openbsd-netcat pandoc glab shellcheck \
     ruff-lsp github-cli glab pdftk pdfarranger foliate \
-    espeak-ng festival expac kiwix-desktop ast-grep
+    espeak-ng festival expac kiwix-desktop ast-grep \
+    tcpdump
 
 # Bluetooth
 sudo systemctl enable bluetooth.service
