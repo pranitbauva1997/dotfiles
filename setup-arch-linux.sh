@@ -71,7 +71,9 @@ sudo pacman -S --noconfirm python-pytorch-opt python-torchvision
 
 yay -S --noconfirm python-transformers python-sentence-transformers
 
-yay -S ngrok
+yay -S --noconfirm python-openai-agents
+
+yay -S --noconfirm ngrok
 
 # TexLive
 
