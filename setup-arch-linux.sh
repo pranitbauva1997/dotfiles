@@ -57,7 +57,7 @@ sudo pacman -S --noconfirm python-pipx python-numpy python-scipy python-matplotl
     python-email-validator python-graphviz python-jax python-jaxlib python-flax \
     python-pyaudio python-simpleaudio python-paddlepaddle python-pynvim \
     python-tenacity python-prompt_toolkit bpython python-click python-typer \
-    python-loguru python-pyaudio
+    python-loguru python-pyaudio python-imageio python-av python-opencv
 
 yay -S --noconfirm python-blobfile python-google-genai python-anthropic \
     python-dspy python-mistralai python-rq python-apscheduler python-llm \
@@ -307,3 +307,5 @@ alias root_backup="sudo rsync -aHAXS --exclude={\"/dev/*\",\"/proc/*\",\"/sys/*\
 alias root_restore="sudo rsync -aHAXS --exclude={\"/dev/*\",\"/proc/*\",\"/sys/*\",\"/tmp/*\",\"/run/*\",\"/mnt/*\",\"/media/*\",\"/lost+found\",\"/drives/*\",\"/home/*\",\"/var/lib/ollama/.ollama/models/*\"} /drives/internalfirst2tb/RootBackup/* /"
 
 
+# Tailscale + Firewall play nice
+sudo firewall-cmd --zone=trusted --add-interface=tailscale0 --permanent
