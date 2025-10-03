@@ -57,13 +57,13 @@ sudo pacman -S --noconfirm python-pipx python-numpy python-scipy python-matplotl
     python-email-validator python-graphviz python-jax python-jaxlib python-flax \
     python-pyaudio python-simpleaudio python-paddlepaddle python-pynvim \
     python-tenacity python-prompt_toolkit bpython python-click python-typer \
-    python-loguru python-pyaudio python-imageio python-av python-opencv
+    python-loguru python-pyaudio python-imageio python-opencv
 
 yay -S --noconfirm python-blobfile python-google-genai python-anthropic \
     python-dspy python-mistralai python-rq python-apscheduler python-llm \
     python-llm-openrouter python-llm-ollama python-pydeck python-weaviate-client \
     python-uharfbuzz python-gradio python-questionary python-pydantic-ai \
-    python-deepgram-sdk python-aenum python-dataclasses-json
+    python-deepgram-sdk python-aenum python-dataclasses-json python-av
 
 yay -S --noconfirm python-hf-transfer python-safetensors python-pycocotools
 
