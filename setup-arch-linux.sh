@@ -226,7 +226,7 @@ yay -S --noconfirm pycharm-professional
 
 # AI IDEs and agents
 
-yay -S claude-code cursor-bin openai-codex warp-terminal-bin windsurf
+yay -S claude-code cursor-bin openai-codex warp-terminal-bin windsurf gemini-cli-bin qwen-code
 
 # Android
 # https://g.co/gemini/share/5c96ad8f5db2
