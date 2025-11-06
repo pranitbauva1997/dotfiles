@@ -471,6 +471,26 @@ vim.o.termguicolors = true
 vim.o.number = true
 vim.o.relativenumber = true
 
+-- [[ Folding settings ]]
+vim.opt.foldmethod = 'indent'
+vim.opt.foldenable = true
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldcolumn = '1'
+
+-- Remember folds between sessions
+local remember_folds = vim.api.nvim_create_augroup('RememberFolds', { clear = true })
+vim.api.nvim_create_autocmd('BufWinLeave', {
+  group = remember_folds,
+  pattern = '*',
+  command = 'mkview',
+})
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  group = remember_folds,
+  pattern = '*',
+  command = 'silent! loadview',
+})
+
 -- [[ Basic Keymaps ]]
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
