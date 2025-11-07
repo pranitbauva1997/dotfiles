@@ -480,15 +480,27 @@ vim.opt.foldcolumn = '1'
 
 -- Remember folds between sessions
 local remember_folds = vim.api.nvim_create_augroup('RememberFolds', { clear = true })
+local function should_persist_view(bufnr)
+  local name = vim.api.nvim_buf_get_name(bufnr)
+  local bt = vim.bo[bufnr].buftype
+  local is_help = vim.bo[bufnr].filetype == 'help'
+  return name ~= '' and bt == '' and not is_help
+end
 vim.api.nvim_create_autocmd('BufWinLeave', {
   group = remember_folds,
-  pattern = '*',
-  command = 'mkview',
+  callback = function(event)
+    if should_persist_view(event.buf) then
+      vim.cmd('silent! mkview')
+    end
+  end,
 })
 vim.api.nvim_create_autocmd('BufWinEnter', {
   group = remember_folds,
-  pattern = '*',
-  command = 'silent! loadview',
+  callback = function(event)
+    if should_persist_view(event.buf) then
+      vim.cmd('silent! loadview')
+    end
+  end,
 })
 
 -- [[ Basic Keymaps ]]
