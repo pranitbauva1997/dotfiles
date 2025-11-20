@@ -338,9 +338,9 @@ require('lazy').setup({
           'git_config', 'git_rebase', 'gitcommit', 'gitignore', 'gomod', 'gosum', 'gowork',
           'haskell', 'html', 'htmldjango', 'http', 'javascript', 'java', 'json', 'ledger',
           'make', 'markdown', 'markdown_inline', 'scss', 'sql', 'svelte', 'lua', 'python',
-          'rust', 'toml', 'tsx', 'vue', 'typescript', 'vimdoc', 'vim'
+          'rust', 'toml', 'tsx', 'typescript', 'vue', 'vimdoc', 'vim'
         },
-        auto_install = false,
+        auto_install = true,
         highlight = { enable = true },
         indent = { enable = true },
         incremental_selection = {
@@ -470,6 +470,19 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 vim.o.number = true
 vim.o.relativenumber = true
+
+-- [[ Auto-reload files changed outside of vim ]]
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI'}, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = {'*'},
+})
+
+-- [[ Dockerfile filetype detection ]]
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+  pattern = {'Dockerfile*', '*.dockerfile', 'dockerfile'},
+  command = 'set filetype=dockerfile',
+})
 
 -- [[ Folding settings ]]
 vim.opt.foldmethod = 'indent'
