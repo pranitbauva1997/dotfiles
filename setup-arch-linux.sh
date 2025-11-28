@@ -58,7 +58,7 @@ sudo pacman -S --noconfirm python-pipx python-numpy python-scipy python-matplotl
     python-pyaudio python-simpleaudio python-paddlepaddle python-pynvim \
     python-tenacity python-prompt_toolkit bpython python-click python-typer \
     python-loguru python-pyaudio python-imageio python-opencv python-six \
-    python-wandb python-celery
+    python-wandb python-celery python-authlib python-gradio
 
 yay -S --noconfirm python-blobfile python-google-genai python-anthropic \
     python-dspy python-mistralai python-rq python-apscheduler python-llm \
