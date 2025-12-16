@@ -2,6 +2,8 @@
 
 mkdir -p ~/Softwares
 
+yay --save --sudoloop # It runs sudo -v in the background periodically to keep your sudo session alive effectively indefinitely while yay is running
+
 sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     a52dec faac faad2 flac jasper lame libdca neovim \
     libdv libmad libmpeg2 libtheora libvorbis libxv wavpack x264 x265 \
