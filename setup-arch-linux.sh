@@ -81,6 +81,8 @@ yay -S --noconfirm python-openai-agents
 
 yay -S --noconfirm ngrok
 
+yay -S --noconfirm subfinder-bin
+
 # TexLive
 
 sudo pacman -S texlive mupdf-tools psutils perl-tk biber ed dialog perl-yaml-tiny \
