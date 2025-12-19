@@ -19,7 +19,8 @@ sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     lhasa lrzip openbsd-netcat pandoc glab shellcheck \
     ruff-lsp github-cli glab pdftk pdfarranger foliate \
     espeak-ng festival expac kiwix-desktop ast-grep \
-    tcpdump git-lfs yt-dlp-ejs pre-commit
+    tcpdump git-lfs yt-dlp-ejs pre-commit lazi zoxide \
+    resvg xsel wl-clipboard chafa
 
 # Bluetooth
 sudo systemctl enable bluetooth.service
