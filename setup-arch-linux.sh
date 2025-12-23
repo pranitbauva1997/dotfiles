@@ -20,7 +20,7 @@ sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     ruff-lsp github-cli glab pdftk pdfarranger foliate \
     espeak-ng festival expac kiwix-desktop ast-grep \
     tcpdump git-lfs yt-dlp-ejs pre-commit lazi zoxide \
-    resvg xsel wl-clipboard chafa
+    resvg xsel wl-clipboard chafa dust
 
 # Bluetooth
 sudo systemctl enable bluetooth.service
@@ -61,7 +61,8 @@ sudo pacman -S --noconfirm python-pipx python-numpy python-scipy python-matplotl
     python-pyaudio python-simpleaudio python-paddlepaddle python-pynvim \
     python-tenacity python-prompt_toolkit bpython python-click python-typer \
     python-loguru python-pyaudio python-imageio python-opencv python-six \
-    python-wandb python-celery python-authlib python-gradio python-readability-lxml
+    python-wandb python-celery python-authlib python-gradio python-readability-lxml \
+    python-pytesseract
 
 yay -S --noconfirm python-blobfile python-google-genai python-anthropic \
     python-dspy python-mistralai python-rq python-apscheduler python-llm \
