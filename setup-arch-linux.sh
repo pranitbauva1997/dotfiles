@@ -22,6 +22,9 @@ sudo pacman -S --noconfirm vim cmake aria2 xclip alacritty \
     tcpdump git-lfs yt-dlp-ejs pre-commit lazi zoxide \
     resvg xsel wl-clipboard chafa dust
 
+# Photograpy
+sudo pacman -S darktable rawtherapee digikam exiftool hugin dcraw
+
 # Bluetooth
 sudo systemctl enable bluetooth.service
 sudo systemctl start bluetooth.service
