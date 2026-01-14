@@ -262,6 +262,10 @@ yay -S --noconfirm google-chrome ungoogled-chromium
 # Replicate
 yay -S --noconfirm replicate-cog-bin
 
+# cyber security
+sudo pacman -S masscan
+yay -S naabu nuclei waybackurls
+
 # Follow steps to setup snapshots in GRUB: https://discovery.endeavouros.com/encrypted-installation/btrfs-with-timeshift-snapshots-on-the-grub-menu/2022/02/
 
 # Remove orphans
