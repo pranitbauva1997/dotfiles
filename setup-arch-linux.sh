@@ -72,7 +72,8 @@ yay -S --noconfirm python-blobfile python-google-genai python-anthropic \
     python-llm-openrouter python-llm-ollama python-pydeck python-weaviate-client \
     python-uharfbuzz python-gradio python-questionary python-pydantic-ai \
     python-deepgram-sdk python-aenum python-dataclasses-json python-av \
-    python-trafilatura python-youtube-transcript-api
+    python-trafilatura python-youtube-transcript-api python-httpx-sse \
+    python-sse-starlette
 
 yay -S --noconfirm python-hf-transfer python-safetensors python-pycocotools
 
