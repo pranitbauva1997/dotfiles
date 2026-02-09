@@ -156,6 +156,9 @@ cp docker/config.json ~/.docker/config.json
 # AWS CLI
 sudo pacman -S --noconfirm aws-cli
 
+# Azure CLI
+sudo pacman -S azure-cli azure-kubelogin
+
 # Google Cloud SDK
 yay -S --noconfirm google-cloud-cli google-cloud-cli-bq google-cloud-cli-gsutil python-crcmod
 
@@ -166,7 +169,7 @@ yay -S --noconfirm k6-bin
 sudo pacman -S --noconfirm terraform
 
 # Kubernetes (exclude the cluster running tools)
-sudo pacman -S --noconfirm kubectl kubectx k9s
+sudo pacman -S --noconfirm kubectl kubectx k9s kubie
 
 # Nomad
 sudo pacman -S --noconfirm nomad consul
