@@ -330,3 +330,23 @@ alias root_restore="sudo rsync -aHAXS --exclude={\"/dev/*\",\"/proc/*\",\"/sys/*
 
 # Tailscale + Firewall play nice
 sudo firewall-cmd --zone=trusted --add-interface=tailscale0 --permanent
+
+# Make use of hardware encoding/decoding for video
+# Install VA-API core + Intel media driver
+sudo pacman -S libva libva-utils intel-media-driver
+
+# Remove legacy Intel VA-API driver (i965, wrong for Tiger Lake)
+sudo pacman -R libva-intel-driver
+
+# Check render node permissions
+ls -l /dev/dri/renderD*
+
+# Add user to video group (commonly needed)
+sudo usermod -aG video $USER
+
+# (Recommended) add user to render group as well
+sudo usermod -aG render $USER
+
+# Verify VA-API works and iHD driver is in use
+vainfo
+
