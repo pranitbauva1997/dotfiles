@@ -27,6 +27,11 @@
     remotes = remote --verbose
     contributors = shortlog --summary --numbered
     whoami = config user.email
+    wt = worktree
+    wtl = worktree list
+    wta = worktree add
+    wtr = worktree remove
+    wtp = worktree prune
 
 [push]
     default = current
