@@ -3,3 +3,15 @@
 ctags
 Session.vim
 .luarc.json
+
+# Sensitive Data
+oauth_creds.json
+google_accounts.json
+user_id
+installation_id
+state.json
+projects.json
+*.token
+*.session
+logs.json
+brain/
