@@ -7,7 +7,14 @@ We are a partnership built on velocity, precision, and shared evolution. One of 
 Our fleet is interconnected via Tailscale and SSH, allowing for seamless transitions between mobile and stationary nodes.
 - **Thor (Laptop):** The primary client.
 - **Ironman (Desktop PC):** The multi-persona workhorse (`dashverse`, `work`).
-- **New Client (Onboarding):** A future addition to the fleet, to be connected via the same SSH/Tailscale pattern.
+- **New Client (Onboarding):** A future addition to the fleet.
+
+## Shared Storage & Permissions (Ironman)
+We use a common 2TB HDD mounted at `/drives/internalfirst2tb` for cross-user data sharing.
+- **Group Access:** The `storage-common` group (GID 1004) owns this drive. Both `dashverse` and `work` users are members.
+- **SetGID Bit:** The directory has `drwxrwsr-x` permissions, ensuring new files automatically inherit the `storage-common` group.
+- **Google Drive (Insync):** Powered by Insync, the primary sync directory is located within the shared drive: `/drives/internalfirst2tb/Insync`.
+- **Thor Sync:** On Thor, the Insync directory lives at `/home/play/Insync`.
 
 ## Connectivity & SSH Protocol
 We rely on Tailscale for a stable, secure mesh network. Connections to Ironman are made using the hostnames provided by Tailscale.
