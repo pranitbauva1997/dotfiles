@@ -14,7 +14,8 @@ set lazyredraw
 set showmatch
 set spell
 set hlsearch
-colorscheme pablo
+set termguicolors
+colorscheme moonfly
 let mapleader = " "
 
 " Clipboard and Keymaps

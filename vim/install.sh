@@ -28,6 +28,7 @@ vim_plugins() {
     https://github.com/Xuyuanp/nerdtree-git-plugin.git
     https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
     https://github.com/ervandew/supertab.git
+    https://github.com/bluz71/vim-moonfly-colors.git
   "
 
   for plugin in $plugins; do
