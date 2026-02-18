@@ -62,6 +62,7 @@ set foldmethod=indent
 let python_highlight_all = 1
 
 " NERDTree Mappings
+let g:NERDTreeWinPos = "right"
 nnoremap <Leader>n :NERDTreeToggle<CR>
 
 " CtrlP: Use ripgrep for faster searching and respecting .gitignore
