@@ -11,10 +11,15 @@ set tabstop=4
 set autoindent
 syntax enable
 set lazyredraw
+set ttyfast
+set laststatus=2
 set showmatch
 set spell
 set hlsearch
 set termguicolors
+set updatetime=250
+set timeoutlen=300
+set shortmess+=I
 colorscheme moonfly
 let mapleader = " "
 
