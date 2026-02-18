@@ -8,17 +8,20 @@
   "ui": {
     "theme": "ANSI",
     "footer": {
-      "hideContextPercentage": false
+      "hideContextPercentage": false,
+      "hideSandboxStatus": true
     },
     "showMemoryUsage": true,
     "showModelInfoInChat": true,
     "autoThemeSwitching": false,
     "inlineThinkingMode": "full",
     "showStatusInTitle": true,
-    "hideBanner": true
+    "hideBanner": true,
+    "showHomeDirectoryWarning": false
   },
   "general": {
     "previewFeatures": true,
+    "devtools": true,
     "vimMode": false,
     "preferredEditor": "vim",
     "defaultApprovalMode": "auto_edit",
@@ -30,6 +33,11 @@
     "format": "text"
   },
   "experimental": {
-    "useOSC52Paste": true
+    "useOSC52Paste": true,
+    "plan": true,
+    "plan": true
+  },
+  "model": {
+    "compressionThreshold": 0.2
   }
 }
