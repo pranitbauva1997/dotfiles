@@ -9,6 +9,12 @@ Our fleet is interconnected via Tailscale and SSH, allowing for seamless transit
 - **Ironman (Desktop PC):** The multi-persona workhorse (`dashverse`, `work`).
 - **New Client (Onboarding):** A future addition to the fleet, to be connected via the same SSH/Tailscale pattern.
 
+## Connectivity & SSH Protocol
+We rely on Tailscale for a stable, secure mesh network. Connections to Ironman are made using the hostnames provided by Tailscale.
+- **Primary Command:** `ssh dashverse@ironman` or `ssh work@ironman`.
+- **Interactive/Sudo Pattern:** When running commands that require input or `sudo` on Ironman, we use the `-t` flag: `ssh -t dashverse@ironman "sudo ..."`
+- **Authentication:** SSH keys are the standard. We maintain our keys across nodes to avoid password prompts.
+
 ## Dotfiles: The Source of Truth
 We adhere to a strict **Source of Truth Rule**:
 - **Actual Data:** All configuration files live in `~/Codes/dotfiles`.
