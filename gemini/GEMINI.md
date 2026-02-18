@@ -63,9 +63,6 @@ Our usage of editors has evolved. We use `vim` and `neovim` as high-agility "vie
 - **Clipboard Sync:** `y` and `Ctrl+c` are now globally mapped to the system clipboard (OSC 52 in Neovim, `unnamedplus` in Vim).
 
 ## Current Focus & Future Targets
-- [x] **Sync Foundation:** Dotfiles, i3, Tmux, Git, and Gemini-cli are unified and symlinked.
-- [x] **Shared Memory:** GEMINI.md is live and synced.
-- [ ] **API Key Harmonization:** Common env vars for OpenAI, Gemini, Anthropic, OpenRouter, and Context7.
 - [ ] **Package Audit:** Tracking and syncing system-wide Python packages.
 - [ ] **Neovim Error Hunt:** Diagnose and fix intermittent errors in the Golden Config.
 - [ ] **Screenshot Clipboard:** Automate Print Screen to copy directly to clipboard for instant pasting.
