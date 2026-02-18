@@ -22,6 +22,7 @@ opt.autoread = true
 opt.foldmethod = 'indent'
 opt.foldenable = true
 opt.foldlevel = 99
+opt.spellfile = vim.fn.expand('~/.vim/spell/en.utf-8.add')
 
 -- [[ Plugin Manager Setup ]]
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -154,6 +155,24 @@ map('n', '<leader>sw', require('telescope.builtin').grep_string, 'Search current
 map('n', '<leader>db', function() require"dap".toggle_breakpoint() end, 'Debug Breakpoint')
 map('n', '<leader>dc', function() require"dap".continue() end, 'Debug Continue')
 map('n', '<leader>dus', function() require"dapui".toggle() end, 'Debug UI')
+
+-- Spell Checking: Add all errors in buffer to dictionary
+vim.api.nvim_create_user_command('SpellAddAll', function()
+  local cursor = vim.api.nvim_win_get_cursor(0)
+  vim.cmd('normal! gg')
+  local last_pos = nil
+  while true do
+    vim.cmd('normal! ]s')
+    local curr_pos = vim.api.nvim_win_get_cursor(0)
+    if last_pos and curr_pos[1] == last_pos[1] and curr_pos[2] == last_pos[2] then
+      break
+    end
+    last_pos = curr_pos
+    vim.cmd('normal! zg')
+  end
+  vim.api.nvim_win_set_cursor(0, cursor)
+end, { desc = 'Add all spelling errors in buffer to dictionary' })
+map('n', '<leader>za', ':SpellAddAll<CR>', 'Spell Add All')
 
 -- Go Specific
 vim.api.nvim_create_autocmd('FileType', { pattern = 'go', callback = function()

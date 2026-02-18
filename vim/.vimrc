@@ -60,3 +60,22 @@ noremap <Leader>n :NERDTreeToggle<CR>
 
 " Tags
 noremap <C-w>[ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Spell Checking: Add all errors in buffer to dictionary
+function! AddAllSpellingErrors()
+    let l:save_cursor = getpos(".")
+    normal! gg
+    let l:last_pos = [0, 0, 0, 0]
+    while 1
+        normal! ]s
+        let l:curr_pos = getpos(".")
+        if l:curr_pos == l:last_pos
+            break
+        endif
+        let l:last_pos = l:curr_pos
+        normal! zg
+    endwhile
+    call setpos('.', l:save_cursor)
+endfunction
+command! SpellAddAll call AddAllSpellingErrors()
+nnoremap <Leader>za :SpellAddAll<CR>

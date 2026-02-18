@@ -6,8 +6,10 @@ PLUGIN_OPTS="--depth 1"
 DOTFILES_VIM_RC="${HOME}/Codes/dotfiles/vim/.vimrc"
 
 link_vimrc() {
-  echo "Linking .vimrc from dotfiles..."
+  echo "Linking .vimrc and spell files from dotfiles..."
   ln -sf "${DOTFILES_VIM_RC}" "${HOME}/.vimrc"
+  mkdir -p "${HOME}/.vim/spell"
+  ln -sf "${HOME}/Codes/dotfiles/vim/spell/en.utf-8.add" "${HOME}/.vim/spell/en.utf-8.add"
 }
 
 # Install Plugins (Optimized for agile viewing)

@@ -3,6 +3,8 @@
 ctags
 Session.vim
 .luarc.json
+*.spl
+*.sug
 
 # Sensitive Data
 oauth_creds.json
