@@ -72,6 +72,7 @@ Our usage of editors has evolved. We use `vim` and `neovim` as high-agility "vie
 
 ## Current Focus & Future Targets
 - [ ] **Package Audit:** Tracking and syncing system-wide Python packages.
+- [ ] **MCP Setup:** Add Playwright MCP server for Gemini, Claude Code, Cursor, Windsurf, OpenCode, and ensure Playwright is properly configured in every environment.
 
 ## Known Bugs
 - **Color Output:** Gemini CLI is currently failing to display colors properly in some contexts.
