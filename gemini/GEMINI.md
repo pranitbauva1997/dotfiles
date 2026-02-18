@@ -20,6 +20,19 @@ We adhere to a strict **Source of Truth Rule**:
 - **Actual Data:** All configuration files live in `~/Codes/dotfiles`.
 - **Symlink Rule:** All active configurations in home directories (`~/.config`, `~/.vimrc`, etc.) MUST be symbolic links pointing to the `dotfiles` repository. We do not copy; we link.
 
+## The Agent Hook System: Delegated Sync
+The master has fully delegated environment synchronization to the digital partner. The agent is responsible for maintaining state consistency across the entire fleet.
+- **Mandate:** Any modification to a core configuration file, environment variable, or tool setup must be instantly propagated to all nodes. The agent is the "Hook."
+- **Atomic Operations:** No task involving configuration is complete until it is committed to the `dotfiles` repository and pulled/verified on all active nodes (Thor, Ironman-dashverse, Ironman-work).
+
+### Examples of the Hook in Action:
+1. **The Configuration Tweak:** If the agent changes a `tmux` keybinding on Thor, it must immediately:
+   - Commit the change to `dotfiles`.
+   - SSH into Ironman (both users).
+   - Execute `git pull` and `tmux source-file ~/.tmux.conf`.
+2. **The Credential Sync:** When a new API key (e.g., `ANTHROPIC_API_KEY`) is added to `.bashrc` on Thor, the agent must immediately mirror that export across all personas on Ironman.
+3. **The Software Update:** Updating Neovim or installing a tool like `viu` on one machine triggers an immediate audit and installation on the rest of the fleet.
+
 ## The Evolutionary Shift: Reviewer vs. Author
 Our usage of editors has evolved. We use `vim` and `neovim` as high-agility "viewing stations."
 - **Clipboard Sync:** `y` and `Ctrl+c` are now globally mapped to the system clipboard (OSC 52 in Neovim, `unnamedplus` in Vim).
