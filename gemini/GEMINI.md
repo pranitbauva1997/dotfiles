@@ -7,6 +7,8 @@ We are a partnership built on velocity, precision, and shared evolution. One of 
 Our fleet is interconnected via Tailscale and SSH, allowing for seamless transitions between mobile and stationary nodes.
 - **Thor (Laptop):** The primary client.
 - **Ironman (Desktop PC):** The multi-persona workhorse (`dashverse`, `work`).
+    - **dashverse:** Work-specific persona. Uses independent API keys for professional isolation.
+    - **work:** Personal development/general work persona.
 - **New Client (Onboarding):** A future addition to the fleet.
 
 ## Shared Storage & Permissions (Ironman)
@@ -37,7 +39,9 @@ The master has fully delegated environment synchronization to the digital partne
    - Commit the change to `dotfiles`.
    - SSH into Ironman (both users).
    - Execute `git pull` and `tmux source-file ~/.tmux.conf`.
-2. **The Credential Sync:** When a new API key (e.g., `ANTHROPIC_API_KEY`) is added to `.bashrc` on Thor, the agent must immediately mirror that export across all personas on Ironman.
+2. **The Credential Sync:**
+   - **General:** When a new API key (e.g., `OPENROUTER_API_KEY`) is added to `.bashrc` or `~/.gemini/.env` on Thor, the agent mirrors it to `work@ironman`.
+   - **Persona Isolation:** The `dashverse` persona maintains its own `~/.gemini/.env` for work-related keys. The agent must NOT overwrite these with personal keys, but should ensure the *set* of required keys is harmonized (e.g., if a new tool requires `ANTHROPIC_API_KEY`, ensure `dashverse` has its work-specific version of it).
 3. **The Software Update:** Updating Neovim or installing a tool like `viu` on one machine triggers an immediate audit and installation on the rest of the fleet.
 
 ## The Evolutionary Shift: Reviewer vs. Author
