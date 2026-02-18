@@ -92,3 +92,17 @@ export EDITOR="nvim"
 if [ -f ~/.gemini/.env ]; then
     export $(grep -v '^#' ~/.gemini/.env | xargs)
 fi
+
+# --- Auto-Sync Dotfiles (Resilient Hook) ---
+# Pull silently in the background if Ironman was offline
+(
+    if [ -d ~/Codes/dotfiles ]; then
+        cd ~/Codes/dotfiles
+        # Only pull if we haven't checked in the last 4 hours to keep shell startup fast
+        SYNC_MARKER="/tmp/.dotfiles_last_sync_$USER"
+        if [ ! -f "$SYNC_MARKER" ] || [ $(find "$SYNC_MARKER" -mmin +240) ]; then
+            git pull --quiet &
+            touch "$SYNC_MARKER"
+        fi
+    fi
+)

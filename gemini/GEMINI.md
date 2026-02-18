@@ -41,8 +41,20 @@ The master has fully delegated environment synchronization to the digital partne
    - SSH into Ironman (both users).
    - Execute `git pull` and `tmux source-file ~/.tmux.conf`.
 2. **The Credential Sync:**
-   - **General:** When a new API key (e.g., `OPENROUTER_API_KEY`) is added to `.bashrc` or `~/.gemini/.env` on Thor, the agent mirrors it to `work@ironman`.
-   - **Persona Isolation:** The `dashverse` persona maintains its own `~/.gemini/.env` for work-related keys. The agent must NOT overwrite these with personal keys, but should ensure the *set* of required keys is harmonized (e.g., if a new tool requires `ANTHROPIC_API_KEY`, ensure `dashverse` has its work-specific version of it).
+   - **Shared Secrets:** `CONTEXT7_API_KEY` is shared across the fleet.
+   - **Blacklisted (Isolated):** The following keys are persona-local and MUST NOT be synced or overwritten:
+     - `ANTHROPIC_API_KEY`
+     - `GEMINI_API_KEY`
+     - `OPENAI_API_KEY`
+     - `OPENROUTER_API_KEY`
+   - **Persona Isolation:** The `dashverse` persona maintains its own `~/.gemini/.env` for these blacklisted keys.
+
+## Node Availability & Resiliency
+Ironman is a development machine and is not guaranteed to be online.
+- **Unreachable Node Protocol:** If a node is unreachable during a Hook trigger, the agent must:
+    1. Commit and push the change to the `dotfiles` repository (Source of Truth).
+    2. Mark the sync as "Pending" in the session log.
+- **Self-Healing Sync:** The unified `bashrc` contains a background task that executes `git pull` on login (or every 4 hours) to ensure an offline node catches up automatically upon return.
 3. **The Software Update:** Updating Neovim or installing a tool like `viu` on one machine triggers an immediate audit and installation on the rest of the fleet.
 4. **Node Runtime Sync:** When a new Node.js version is installed or a global package is updated on Thor, the agent must ensure all Ironman personas match that environment.
 
