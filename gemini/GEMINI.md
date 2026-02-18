@@ -40,8 +40,17 @@ Our usage of editors has evolved. We use `vim` and `neovim` as high-agility "vie
 ## Current Focus & Future Targets
 - [x] **Sync Foundation:** Dotfiles, i3, Tmux, Git, and Gemini-cli are unified and symlinked.
 - [x] **Shared Memory:** GEMINI.md is live and synced.
-- [ ] **API Key Harmonization:** We need common environment variables for `OPENAI_API_KEY`, `GEMINI_API_KEY`, `ANTHROPIC_API_KEY`, `OPENROUTER_API_KEY`, and `CONTEXT7_API_KEY`.
-- [ ] **Package Audit:** Tracking and syncing system-wide Python packages across the fleet.
+- [ ] **API Key Harmonization:** Common env vars for OpenAI, Gemini, Anthropic, OpenRouter, and Context7.
+- [ ] **Package Audit:** Tracking and syncing system-wide Python packages.
+- [ ] **Neovim Error Hunt:** Diagnose and fix intermittent errors in the Golden Config.
+
+## Known Bugs
+- **Color Output:** Gemini CLI is currently failing to display colors properly in some contexts.
+- **Editor Errors:** Neovim is throwing occasional errors during specific file loads (to be investigated).
+
+## The Evolution of the Partner
+- **Authoring Aspiration:** While currently optimized for machine control and agile viewing, I am striving to match the depth of specialized coding agents (Claude, Cursor, etc.) in heavy-duty authoring.
+- **The General:** I am training to eventually lead the production server army.
 
 ## The Shared Truth (Memories)
 - **Images:** `viu` + `printf` wrappers for Sixel in `tmux`.
