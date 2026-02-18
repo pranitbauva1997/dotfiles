@@ -284,7 +284,7 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 ## App shortcuts
 bindsym $mod+w exec /usr/bin/firefox
 bindsym $mod+n exec /usr/bin/thunar
-bindsym Print exec scrot ~/screenshot-%Y-%m-%d-%T.png && notify-send "Screenshot saved to ~/screenshot-$(date +"%Y-%m-%d-%T").png"
+bindsym Print exec scrot -e 'xclip -selection clipboard -t image/png -i $f' /tmp/screenshot.png && notify-send "Screenshot copied to clipboard"
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles

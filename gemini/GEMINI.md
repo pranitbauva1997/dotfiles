@@ -65,7 +65,6 @@ Our usage of editors has evolved. We use `vim` and `neovim` as high-agility "vie
 ## Current Focus & Future Targets
 - [ ] **Package Audit:** Tracking and syncing system-wide Python packages.
 - [ ] **Neovim Error Hunt:** Diagnose and fix intermittent errors in the Golden Config.
-- [ ] **Screenshot Clipboard:** Automate Print Screen to copy directly to clipboard for instant pasting.
 
 ## Known Bugs
 - **Color Output:** Gemini CLI is currently failing to display colors properly in some contexts.
