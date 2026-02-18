@@ -1,3 +1,5 @@
+let mapleader = " "
+
 filetype on
 filetype plugin indent on
 set encoding=utf-8
@@ -21,7 +23,6 @@ set updatetime=250
 set timeoutlen=300
 set shortmess+=I
 colorscheme moonfly
-let mapleader = " "
 
 " Clipboard and Keymaps
 set clipboard=unnamedplus
@@ -61,7 +62,7 @@ set foldmethod=indent
 let python_highlight_all = 1
 
 " NERDTree Mappings
-noremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
 
 " CtrlP: Use ripgrep for faster searching and respecting .gitignore
 if executable('rg')
