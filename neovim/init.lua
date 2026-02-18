@@ -445,7 +445,21 @@ require('lazy').setup({
 vim.o.hlsearch = false
 vim.wo.number = true
 vim.o.mouse = 'a'
-vim.o.clipboard = 'unnamedplus'
+
+-- [[ Clipboard configuration ]]
+-- Use OSC 52 for clipboard synchronization over SSH/TMUX
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
+
 vim.o.breakindent = true
 vim.o.undofile = true
 vim.o.ignorecase = true
