@@ -2,7 +2,7 @@
 
 VIM_DIR=${HOME}/.vim
 VIM_PLUGINS=${VIM_DIR}/pack/vendor/start
-PLUGIN_OPTS="--depth 1 --branch master"
+PLUGIN_OPTS="--depth 1"
 DOTFILES_VIM_RC="${HOME}/Codes/dotfiles/vim/.vimrc"
 
 link_vimrc() {
