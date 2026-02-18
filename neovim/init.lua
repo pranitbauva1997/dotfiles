@@ -307,6 +307,7 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim', opts = {} },
   {
     'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('telescope').setup {
@@ -328,50 +329,54 @@ require('lazy').setup({
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    dependencies = { 'windwp/nvim-ts-autotag' },
-    lazy = false,
+    dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects', 'windwp/nvim-ts-autotag' },
     build = ':TSUpdate',
     config = function()
-      require('nvim-treesitter').install {
-        'astro', 'bash', 'c', 'cpp', 'cmake', 'css', 'dart', 'diff', 'dockerfile', 'go',
-        'git_config', 'git_rebase', 'gitcommit', 'gitignore', 'gomod', 'gosum', 'gowork',
-        'haskell', 'html', 'htmldjango', 'http', 'javascript', 'java', 'json', 'ledger',
-        'make', 'markdown', 'markdown_inline', 'scss', 'sql', 'svelte', 'lua', 'python',
-        'rust', 'toml', 'tsx', 'typescript', 'vue', 'vimdoc', 'vim'
+      require('nvim-treesitter.configs').setup {
+        ensure_installed = {
+          'astro', 'bash', 'c', 'cpp', 'cmake', 'css', 'dart', 'diff', 'dockerfile', 'go',
+          'git_config', 'git_rebase', 'gitcommit', 'gitignore', 'gomod', 'gosum', 'gowork',
+          'haskell', 'html', 'htmldjango', 'http', 'javascript', 'java', 'json', 'ledger',
+          'make', 'markdown', 'markdown_inline', 'scss', 'sql', 'svelte', 'lua', 'python',
+          'rust', 'toml', 'tsx', 'typescript', 'vue', 'vimdoc', 'vim'
+        },
+        auto_install = true,
+        highlight = { enable = true },
+        indent = { enable = true },
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = '<c-space>',
+            node_incremental = '<c-space>',
+            scope_incremental = '<c-s>',
+            node_decremental = '<M-space>',
+          },
+        },
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+              ['aa'] = '@parameter.outer', ['ia'] = '@parameter.inner',
+              ['af'] = '@function.outer', ['if'] = '@function.inner',
+              ['ac'] = '@class.outer', ['ic'] = '@class.inner',
+            },
+          },
+        },
       }
-
-      -- Enable treesitter highlighting and indentation
-      vim.api.nvim_create_autocmd('FileType', {
-        callback = function()
-          pcall(vim.treesitter.start)
-          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-        end,
-      })
 
       -- Configure nvim-ts-autotag
       require("nvim-ts-autotag").setup({
         filetypes = {
-          "html", "javascript", "typescript", "jsx", "tsx", "svelte", "vue",
+          "html",
+          "javascript",
+          "typescript",
+          "jsx",
+          "tsx",
+          "svelte",
+          "vue",
         }
       })
-    end,
-  },
-  {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    branch = 'main',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    config = function()
-      require("nvim-treesitter-textobjects").setup {
-        select = { lookahead = true },
-      }
-
-      local select = require("nvim-treesitter-textobjects.select")
-      vim.keymap.set({ "x", "o" }, "aa", function() select.select_textobject("@parameter.outer") end)
-      vim.keymap.set({ "x", "o" }, "ia", function() select.select_textobject("@parameter.inner") end)
-      vim.keymap.set({ "x", "o" }, "af", function() select.select_textobject("@function.outer") end)
-      vim.keymap.set({ "x", "o" }, "if", function() select.select_textobject("@function.inner") end)
-      vim.keymap.set({ "x", "o" }, "ac", function() select.select_textobject("@class.outer") end)
-      vim.keymap.set({ "x", "o" }, "ic", function() select.select_textobject("@class.inner") end)
     end,
   },
   { 'nvim-neotest/nvim-nio', lazy = true },
