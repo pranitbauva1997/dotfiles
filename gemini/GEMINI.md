@@ -33,6 +33,7 @@ We adhere to a strict **Source of Truth Rule**:
 The master has fully delegated environment synchronization to the digital partner. The agent is responsible for maintaining state consistency across the entire fleet.
 - **Mandate:** Any modification to a core configuration file, environment variable, or tool setup must be instantly propagated to all nodes. The agent is the "Hook."
 - **Atomic Operations:** No task involving configuration is complete until it is committed to the `dotfiles` repository and pulled/verified on all active nodes (Thor, Ironman-dashverse, Ironman-work).
+- **Runtime & Global Packages:** The agent is responsible for auditing and synchronizing `nvm` Node.js versions and global `npm` packages (e.g., `gemini-cli`, `qwen-code`, `claude-code`) across all nodes.
 
 ### Examples of the Hook in Action:
 1. **The Configuration Tweak:** If the agent changes a `tmux` keybinding on Thor, it must immediately:
@@ -43,6 +44,7 @@ The master has fully delegated environment synchronization to the digital partne
    - **General:** When a new API key (e.g., `OPENROUTER_API_KEY`) is added to `.bashrc` or `~/.gemini/.env` on Thor, the agent mirrors it to `work@ironman`.
    - **Persona Isolation:** The `dashverse` persona maintains its own `~/.gemini/.env` for work-related keys. The agent must NOT overwrite these with personal keys, but should ensure the *set* of required keys is harmonized (e.g., if a new tool requires `ANTHROPIC_API_KEY`, ensure `dashverse` has its work-specific version of it).
 3. **The Software Update:** Updating Neovim or installing a tool like `viu` on one machine triggers an immediate audit and installation on the rest of the fleet.
+4. **Node Runtime Sync:** When a new Node.js version is installed or a global package is updated on Thor, the agent must ensure all Ironman personas match that environment.
 
 ## The Evolutionary Shift: Reviewer vs. Author
 Our usage of editors has evolved. We use `vim` and `neovim` as high-agility "viewing stations."
