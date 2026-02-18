@@ -57,28 +57,13 @@ autocmd BufNewFile,BufRead *.tsx set filetype=typescript.tsx
 
 " Plugin Configurations
 "
-" Vim Indent Guides
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
-let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-
 " Vim fugitive
 noremap <Leader>gd :Git diff<CR>
 noremap <Leader>gl :Git log<CR>
 noremap <Leader>gb :Git blame<CR>
 
-" Terraform file configs
-let g:terraform_fmt_on_save = 1
-let g_terraform_align = 1
-
-" Vim Gutter
+" Vim Gutter / Sync settings
 set updatetime=250
-
-" Vim Gutter Mappings
-noremap <Leader>gn :GitGutterNextHunk<CR>
-noremap <Leader>gp :GitGutterPrevHunk<CR>
-nmap <Leader>gv :GitGutterPreviewHunk<CR>
 
 " Remember folds
 augroup remember_folds
@@ -98,25 +83,17 @@ EOF
 }
 
 
-# Install Plugins
+# Install Plugins (Optimized for agile viewing)
 vim_plugins() {
   rm -rf "${VIM_PLUGINS}"
   mkdir -p "${VIM_PLUGINS}"
   cd "${VIM_PLUGINS}" || exit
   eval "git clone ${PLUGIN_OPTS} https://github.com/ctrlpvim/ctrlp.vim.git"
   eval "git clone ${PLUGIN_OPTS} https://github.com/preservim/nerdtree.git"
-  eval "git clone ${PLUGIN_OPTS} https://github.com/vimwiki/vimwiki.git"
   eval "git clone ${PLUGIN_OPTS} https://github.com/tpope/vim-surround.git"
-  eval "git clone ${PLUGIN_OPTS} https://github.com/nathanaelkane/vim-indent-guides.git"
-  eval "git clone ${PLUGIN_OPTS} https://github.com/dhruvasagar/vim-table-mode.git"
   eval "git clone ${PLUGIN_OPTS} https://github.com/tpope/vim-fugitive.git"
   eval "git clone ${PLUGIN_OPTS} https://github.com/vim-airline/vim-airline.git"
-  eval "git clone ${PLUGIN_OPTS} https://github.com/hashivim/vim-terraform.git"
-  eval "git clone ${PLUGIN_OPTS} https://github.com/vim-scripts/AutoClose.git"
-  eval "git clone ${PLUGIN_OPTS} https://github.com/junegunn/goyo.vim.git"
-  eval "git clone ${PLUGIN_OPTS} https://github.com/mg979/vim-visual-multi.git"
   eval "git clone ${PLUGIN_OPTS} https://github.com/tomtom/tcomment_vim.git"
-  eval "git clone ${PLUGIN_OPTS} https://github.com/airblade/vim-gitgutter.git"
   eval "git clone ${PLUGIN_OPTS} https://github.com/hdima/python-syntax.git"
   eval "git clone ${PLUGIN_OPTS} https://github.com/Xuyuanp/nerdtree-git-plugin.git"
   eval "git clone ${PLUGIN_OPTS} https://github.com/jeffkreeftmeijer/vim-numbertoggle.git"
