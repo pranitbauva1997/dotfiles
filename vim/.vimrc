@@ -15,7 +15,7 @@ set showmatch
 set spell
 set hlsearch
 colorscheme pablo
-let mapleader = ','
+let mapleader = " "
 
 " Clipboard and Keymaps
 set clipboard=unnamedplus
