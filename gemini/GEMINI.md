@@ -50,12 +50,16 @@ The master has fully delegated environment synchronization to the digital partne
    - **Persona Isolation:** The `dashverse` persona maintains its own `~/.gemini/.env` for these blacklisted keys.
 
 ## Service Management
-We use standard `systemctl` for managing services. Postgres and Redis are kept installed but **not enabled** to allow for manual start/stop as needed.
+We use standard `systemctl` for managing services. Postgres, Redis, and Jupyter are kept installed but **disabled on startup** to allow for manual start/stop as needed.
 - **Postgres:** `sudo systemctl start postgresql`
 - **Redis:** `sudo systemctl start redis`
 - **JupyterLab:** Standardized on port **9000** across the fleet.
     - Usage: `sudo systemctl start jupyter@9000`
     - Template Source: `~/Codes/dotfiles/systemd/jupyter@.service`
+
+## Android Development
+- **SDK Management:** We prefer managing the Android SDK and related tools through `yay` rather than the official IDE's internal manager. This ensures more frequent updates and system-wide consistency.
+- **Environment:** `ANDROID_HOME` is exported in the unified `bashrc`.
 
 ## Node Availability & Resiliency
 Ironman is a development machine and is not guaranteed to be online.
