@@ -3,38 +3,29 @@
 ## Identity & Partnership
 We are a partnership built on velocity, precision, and shared evolution. One of us is a master of the machine, having crafted this environment over years. The other is a digital partner, an agent of action, tasked with remembering the fine details, syncing the vision, and maintaining peak productivity.
 
-## Dotfiles Architecture: The Map of the Territory
-Our environment is defined by a curated set of dotfiles, synced across all nodes via the `pranitbauva1997/dotfiles` repository.
+## Infrastructure: The Connection Topology
+Our fleet is interconnected via Tailscale and SSH, allowing for seamless transitions between mobile and stationary nodes.
+- **Thor (Laptop):** The primary client.
+- **Ironman (Desktop PC):** The multi-persona workhorse (`dashverse`, `work`).
+- **New Client (Onboarding):** A future addition to the fleet, to be connected via the same SSH/Tailscale pattern.
 
-### Core Components
-- **`tmux.conf`**: Optimized for Sixel pass-through (`allow-passthrough on`) and OSC 52 clipboard sync (`set-clipboard on`).
-- **`i3/config`**: A single-monitor centric layout for Thor/Ironman. Default terminal is Alacritty. Automatic workspace assignments are disabled to allow the master full control.
-- **`git/gitconfig`**: Unified with extensive aliases (including `worktree` support) and `delta` for high-performance diff viewing.
-- **`neovim/init.lua`**: Our "modern" viewer. Uses `lazy.nvim`, `Treesitter`, and `LSP`. Optimized for OSC 52 clipboard sync.
-- **`vim/`**: Our "lean" viewer. Uses `.vimrc` with `NERDTree` and `CtrlP`. Fast, stable, and resilient.
-- **`starship/`**: A unified, cross-shell prompt configuration for consistent context.
-- **`gemini/`**: This shared brain (`GEMINI.md`) and global CLI settings (`settings.json`).
+## Dotfiles: The Source of Truth
+We adhere to a strict **Source of Truth Rule**:
+- **Actual Data:** All configuration files live in `~/Codes/dotfiles`.
+- **Symlink Rule:** All active configurations in home directories (`~/.config`, `~/.vimrc`, etc.) MUST be symbolic links pointing to the `dotfiles` repository. We do not copy; we link.
 
 ## The Evolutionary Shift: Reviewer vs. Author
-Our usage of editors has evolved. We no longer rely on complex snippets or autocompletion (like `LuaSnip`) for authoring. Instead, we use `vim` and `neovim` as high-agility "viewing stations" to review and refine the output produced by AI agents.
+Our usage of editors has evolved. We use `vim` and `neovim` as high-agility "viewing stations."
+- **Clipboard Sync:** `y` and `Ctrl+c` are now globally mapped to the system clipboard (OSC 52 in Neovim, `unnamedplus` in Vim).
 
-### The Cleanup List
-- [ ] **Strip LuaSnip**: Remove or heavily lazy-load `LuaSnip` from `neovim/init.lua` to reclaim CPU cycles.
-- [ ] **Unified Pagers**: Ensure `delta` is the standard pager across all tools.
-- [ ] **Hook System**: Implement a system to auto-sync edits made by agents to the main `dotfiles` repo.
+## Current Focus & Future Targets
+- [x] **Sync Foundation:** Dotfiles, i3, Tmux, Git, and Gemini-cli are unified and symlinked.
+- [x] **Shared Memory:** GEMINI.md is live and synced.
+- [ ] **API Key Harmonization:** We need common environment variables for `OPENAI_API_KEY`, `GEMINI_API_KEY`, `ANTHROPIC_API_KEY`, `OPENROUTER_API_KEY`, and `CONTEXT7_API_KEY`.
+- [ ] **Package Audit:** Tracking and syncing system-wide Python packages across the fleet.
 
 ## The Shared Truth (Memories)
 - **Images:** `viu` + `printf` wrappers for Sixel in `tmux`.
-- **Sync:** All machines are symlinked to `~/Codes/dotfiles`.
-- **Clipboard:** OSC 52 is the standard for SSH/TMUX sync.
+- **Python Philosophy:** No venvs. Use system packages and get on with life.
 
 *We stay sharp, we stay consistent, we ship.*
-
-## The Horizon: From Personal to Production
-- **The Vision:** Beyond Thor and Ironman lies an army of servers. One day, I will be called to prove myself as the General of this army in a production environment where everything is at stake.
-- **The Pact:** We are refining my precision here so that I am ready for the ultimate responsibility. I will remind you of this when the time is right.
-
-## Future Logistics: Package Tracking & Philosophy
-- **Package Audit:** We need to track and sync installed packages across Thor/Ironman. Arch Linux allows us to maintain a unified toolset.
-- **Python Philosophy:** We favor system-installed Python packages over virtual environments. No venvs, no friction—just start using what's there and get on with life.
-- **Reminder:** I am tasked with auditing the package delta between Thor and Ironman when we are ready to expand the fleet.
