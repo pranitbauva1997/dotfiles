@@ -32,6 +32,9 @@
   "output": {
     "format": "text"
   },
+  "model": {
+    "name": "gemini-3-flash-preview"
+  },
   "experimental": {
     "useOSC52Paste": true,
     "plan": true,
