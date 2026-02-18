@@ -58,6 +58,12 @@ let python_highlight_all = 1
 " NERDTree Mappings
 noremap <Leader>n :NERDTreeToggle<CR>
 
+" CtrlP: Use ripgrep for faster searching and respecting .gitignore
+if executable('rg')
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 0
+endif
+
 " Tags
 noremap <C-w>[ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
