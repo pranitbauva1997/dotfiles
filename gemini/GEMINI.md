@@ -50,6 +50,7 @@ Our usage of editors has evolved. We use `vim` and `neovim` as high-agility "vie
 - [ ] **API Key Harmonization:** Common env vars for OpenAI, Gemini, Anthropic, OpenRouter, and Context7.
 - [ ] **Package Audit:** Tracking and syncing system-wide Python packages.
 - [ ] **Neovim Error Hunt:** Diagnose and fix intermittent errors in the Golden Config.
+- [ ] **Screenshot Clipboard:** Automate Print Screen to copy directly to clipboard for instant pasting.
 
 ## Known Bugs
 - **Color Output:** Gemini CLI is currently failing to display colors properly in some contexts.

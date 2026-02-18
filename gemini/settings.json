@@ -33,14 +33,11 @@
     "format": "text"
   },
   "model": {
+    "compressionThreshold": 0.2,
     "name": "gemini-3-flash-preview"
   },
   "experimental": {
     "useOSC52Paste": true,
-    "plan": true,
     "plan": true
-  },
-  "model": {
-    "compressionThreshold": 0.2
   }
 }
