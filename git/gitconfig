@@ -27,11 +27,6 @@
     remotes = remote --verbose
     contributors = shortlog --summary --numbered
     whoami = config user.email
-    wt = worktree
-    wtl = worktree list
-    wta = worktree add
-    wtr = worktree remove
-    wtp = worktree prune
 
 [push]
     default = current
@@ -78,3 +73,13 @@
 
 [diff]
     colorMoved = default
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+    wt = worktree
+    wtl = worktree list
+    wta = worktree add
+    wtr = worktree remove
+    wtp = worktree prune
