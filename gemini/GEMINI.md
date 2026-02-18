@@ -49,6 +49,14 @@ The master has fully delegated environment synchronization to the digital partne
      - `OPENROUTER_API_KEY`
    - **Persona Isolation:** The `dashverse` persona maintains its own `~/.gemini/.env` for these blacklisted keys.
 
+## Service Management
+We use standard `systemctl` for managing services. Postgres and Redis are kept installed but **not enabled** to allow for manual start/stop as needed.
+- **Postgres:** `sudo systemctl start postgresql`
+- **Redis:** `sudo systemctl start redis`
+- **JupyterLab:** Standardized on port **9000** across the fleet.
+    - Usage: `sudo systemctl start jupyter@9000`
+    - Template Source: `~/Codes/dotfiles/systemd/jupyter@.service`
+
 ## Node Availability & Resiliency
 Ironman is a development machine and is not guaranteed to be online.
 - **Unreachable Node Protocol:** If a node is unreachable during a Hook trigger, the agent must:
@@ -78,3 +86,6 @@ Our usage of editors has evolved. We use `vim` and `neovim` as high-agility "vie
 - **Python Philosophy:** No venvs. Use system packages and get on with life.
 
 *We stay sharp, we stay consistent, we ship.*
+
+## Gemini Added Memories
+- The user uses Arch Linux and employs 'pacman' and 'yay' for package management and system updates.
