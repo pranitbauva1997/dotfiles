@@ -39,10 +39,5 @@
   "experimental": {
     "useOSC52Paste": true,
     "plan": true
-  },
-  "tools": {
-    "shell": {
-      "showColor": true
-    }
   }
 }

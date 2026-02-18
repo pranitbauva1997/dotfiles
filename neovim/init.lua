@@ -143,7 +143,7 @@ vim.keymap.set('v', '<C-c>', '"+y')
 
 -- [[ Custom Autocommands ]]
 vim.api.nvim_create_autocmd('TextYankPost', { callback = function() vim.highlight.on_yank() end, group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }), pattern = '*' })
-vim.api.nvim_create_autocmd({'FocusGained', 'BufEnter', 'CursorHold'}, { command = "if mode() != 'c' | checktime | endif", pattern = {'*'} })
+vim.api.nvim_create_autocmd({'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI'}, { command = "if mode() != 'c' | checktime | endif", pattern = {'*'} })
 
 -- [[ Keymaps ]]
 local function map(mode, lhs, rhs, desc) vim.keymap.set(mode, lhs, rhs, { desc = desc }) end
