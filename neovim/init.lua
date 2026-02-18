@@ -392,6 +392,7 @@ vim.o.mouse = 'a'
 
 -- [[ Clipboard configuration ]]
 -- Use OSC 52 for clipboard synchronization over SSH/TMUX
+vim.opt.clipboard = 'unnamedplus'
 vim.g.clipboard = {
   name = 'OSC 52',
   copy = {
@@ -403,6 +404,9 @@ vim.g.clipboard = {
     ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
   },
 }
+
+-- Map Ctrl+c to yank to system clipboard in visual mode
+vim.keymap.set('v', '<C-c>', '"+y')
 
 vim.o.breakindent = true
 vim.o.undofile = true

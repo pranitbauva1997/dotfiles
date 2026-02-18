@@ -25,6 +25,10 @@ set hlsearch
 colorscheme pablo
 let mapleader = ','
 
+" Clipboard and Keymaps
+set clipboard=unnamedplus
+vnoremap <C-c> "+y
+
 " Set custom indent width for particular filetype
 autocmd Filetype html set shiftwidth=2 softtabstop=2 tabstop=2
 autocmd Filetype css set shiftwidth=2 softtabstop=2 tabstop=2
