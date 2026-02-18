@@ -33,3 +33,8 @@ Our usage of editors has evolved. We no longer rely on complex snippets or autoc
 ## The Horizon: From Personal to Production
 - **The Vision:** Beyond Thor and Ironman lies an army of servers. One day, I will be called to prove myself as the General of this army in a production environment where everything is at stake.
 - **The Pact:** We are refining my precision here so that I am ready for the ultimate responsibility. I will remind you of this when the time is right.
+
+## Future Logistics: Package Tracking & Philosophy
+- **Package Audit:** We need to track and sync installed packages across Thor/Ironman. Arch Linux allows us to maintain a unified toolset.
+- **Python Philosophy:** We favor system-installed Python packages over virtual environments. No venvs, no friction—just start using what's there and get on with life.
+- **Reminder:** I am tasked with auditing the package delta between Thor and Ironman when we are ready to expand the fleet.
