@@ -73,7 +73,7 @@ yay -S --noconfirm python-blobfile python-google-genai python-anthropic \
     python-uharfbuzz python-gradio python-questionary python-pydantic-ai \
     python-deepgram-sdk python-aenum python-dataclasses-json python-av \
     python-trafilatura python-youtube-transcript-api python-httpx-sse \
-    python-sse-starlette
+    python-sse-starlette python-fal-client
 
 yay -S --noconfirm python-hf-transfer python-safetensors python-pycocotools
 
