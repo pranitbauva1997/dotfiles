@@ -128,7 +128,6 @@ require('lazy').setup({
       end
 
       local servers = {
-        clangd = {},
         gopls = {
           completeUnimported = true,
           usePlaceholders = true,
@@ -138,28 +137,8 @@ require('lazy').setup({
         },
         pyright = {},
         ts_ls = {},
-        cmake = {},
-        cssls = {},
-        docker_compose_language_service = {},
-        dockerls = {},
-        elmls = {},
         eslint = {},
-        html = {},
-        -- pyre = {},
         rust_analyzer = {},
-        terraformls = {},
-        tflint = {},
-        astro = {},
-        awk_ls = {},
-        -- bashls = {},
-        -- grammarly = {},
-        helm_ls = {},
-        ruff = {},
-        sqlls = {},
-        tailwindcss = {},
-        vimls = {},
-        svelte = {},
-        ansiblels = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -172,11 +151,9 @@ require('lazy').setup({
 
       -- Get the list of servers to install from the keys of the servers table
       local ensure_installed = vim.tbl_keys(servers)
-      -- Manually add eslint to the list of servers to install
-      table.insert(ensure_installed, "eslint")
 
       require("mason-lspconfig").setup({
-        ensure_installed = ensure_installed,
+        ensure_installed = {}, -- Disable auto-install for viewing agility
         handlers = {
           -- This is the generic handler for all servers except eslint
           function(server_name)
@@ -236,7 +213,6 @@ require('lazy').setup({
   },
 
   -- Other plugins
-  { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
   { 'folke/which-key.nvim', opts = {} },
   {
     'lewis6991/gitsigns.nvim',
@@ -273,8 +249,6 @@ require('lazy').setup({
       },
     },
   },
-  { 'lukas-reineke/indent-blankline.nvim', main = "ibl", opts = {} },
-  { 'numToStr/Comment.nvim', opts = {} },
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
