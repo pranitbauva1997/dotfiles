@@ -69,7 +69,22 @@ nnoremap <Leader>n :NERDTreeToggle<CR>
 if executable('rg')
   let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
   let g:ctrlp_use_caching = 0
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+  set grepformat=%f:%l:%c:%m
 endif
+
+" Grep Search: Space + s + g (Matches Neovim Telescope)
+function! GrepSearch()
+    call inputsave()
+    let l:query = input('Grep Search For: ')
+    call inputrestore()
+    if l:query != ""
+        execute "grep! " . l:query
+        copen
+        redraw!
+    endif
+endfunction
+nnoremap <Leader>sg :call GrepSearch()<CR>
 
 " Tags
 noremap <C-w>[ :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
