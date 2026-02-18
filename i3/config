@@ -311,7 +311,7 @@ set $ws10 "0"
 
 # bind program to workspace and focus to them on startup:
 #assign [class="Alacritty"] $ws1
-assign [class="(?i)firefox"] $ws2
+# assign [class="(?i)firefox"] $ws2
 #assign [class="Alacritty"] $ws3
 #assign [class="Postman"] $ws4
 #assign [class="Slack"] $ws5
@@ -320,12 +320,12 @@ assign [class="(?i)firefox"] $ws2
 
 # automatic set focus new window if it opens on another workspace then the current:
 #for_window [class="Spotify"] move to workspace $ws9
-for_window [class=Alacritty] focus
-for_window [class=(?i)firefox] focus
-for_window [class=Thunar] focus
-for_window [class=Insomnia] focus
-for_window [class=TelegramDesktop] focus
-for_window [class=Zulip] focus
+# for_window [class=Alacritty] focus
+# for_window [class=(?i)firefox] focus
+# for_window [class=Thunar] focus
+# for_window [class=Insomnia] focus
+# for_window [class=TelegramDesktop] focus
+# for_window [class=Zulip] focus
 
 ##############
 # compositor #
