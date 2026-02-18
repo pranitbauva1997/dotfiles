@@ -1,0 +1,16 @@
+[Unit]
+Description=JupyterLab Server for %i
+After=network.target
+
+[Service]
+Type=simple
+# %i is the port number passed in the instance name
+ExecStart=/usr/bin/jupyter-lab --port=%i --ip=0.0.0.0 --no-browser --NotebookApp.token='' --NotebookApp.password=''
+User=%u
+Group=%g
+WorkingDirectory=%h
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
