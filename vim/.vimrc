@@ -20,7 +20,7 @@ set spell
 set hlsearch
 set termguicolors
 set updatetime=250
-set timeoutlen=300
+set timeoutlen=500
 set shortmess+=I
 colorscheme moonfly
 
