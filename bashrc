@@ -89,7 +89,7 @@ viu() {
     if [ -n "$TMUX" ]; then
         printf "\ePtmux;\e"
         command viu "$@"
-        printf "\e\\"
+        printf "\e\e\\"
     else
         command viu "$@"
     fi
