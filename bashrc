@@ -83,6 +83,18 @@ smv() {
     rsync -vhr --remove-source-files "$@"
 }
 
+# --- Images ---
+# Wrapper for viu to support Sixel passthrough in tmux
+viu() {
+    if [ -n "$TMUX" ]; then
+        printf "\ePtmux;\e"
+        command viu "$@"
+        printf "\e\\"
+    else
+        command viu "$@"
+    fi
+}
+
 # --- Environment ---
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
