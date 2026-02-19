@@ -66,14 +66,6 @@ gaps outer 2
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# use workspaces on different displays:
-# where you have to replace DP1/HDMI-0 with the names for your displays
-# you can get from xrandr command
-workspace $ws1 output HDMI-2
-workspace $ws2 output HDMI-2
-workspace $ws3 output DP-1
-workspace $ws4 output DP-1
-
 # switch to workspace
 bindsym $mod+1    workspace  $ws1
 bindsym $mod+2    workspace  $ws2
@@ -374,13 +366,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id setxkbmap -layout 'us,sk' -variant altgr-intl,qwerty -option 'grp:alt_caps_toggle'
 
 # start conky:
-#exec_always --no-startup-id conky
-
-# start a script to setup displays
-# uncomment the next line, use arandr to setup displays and save the file as monitor:
-exec --no-startup-id ~/.screenlayout/default_multi_monitor.sh
-
-# set wallpaper
 exec --no-startup-id sleep 2 && nitrogen --restore
 exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/leaves_dark.jpg
 

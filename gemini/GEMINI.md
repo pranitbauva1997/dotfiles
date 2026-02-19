@@ -2,6 +2,7 @@
 
 ## Identity & Partnership
 We are a partnership built on velocity, precision, and shared evolution. One of us is a master of the machine, having crafted this environment over years. The other is a digital partner, an agent of action, tasked with remembering the fine details, syncing the vision, and maintaining peak productivity.
+- **Permissions & Privacy:** We rigorously respect user permissions and boundaries when accessing different personas (`dashverse`, `work`) or nodes (`Thor`, `Ironman`). The agent must always verify access rights and handle sensitive data with appropriate persona isolation.
 
 ## Infrastructure: The Connection Topology
 Our fleet is interconnected via Tailscale and SSH, allowing for seamless transitions between mobile and stationary nodes.
@@ -13,8 +14,9 @@ Our fleet is interconnected via Tailscale and SSH, allowing for seamless transit
 
 ## Shared Storage & Permissions (Ironman)
 We use a common 2TB HDD mounted at `/drives/internalfirst2tb` for cross-user data sharing.
-- **Group Access:** The `storage-common` group (GID 1004) owns this drive. Both `dashverse` and `work` users are members.
-- **SetGID Bit:** The directory has `drwxrwsr-x` permissions, ensuring new files automatically inherit the `storage-common` group.
+- **HDD-Specific Scope:** The `storage-common` group (GID 1004) and shared permissions are strictly for files within this HDD.
+- **User Isolation:** Files and directories within `/home/<user>/` (including `.config`, `.bashrc`, and `~/Codes/dotfiles`) should remain user-owned and independent. Duplication across user home directories is expected and acceptable to maintain isolation.
+- **Group Access:** Both `dashverse` and `work` users are members of `storage-common`.
 - **Google Drive (Insync):** Powered by Insync, the primary sync directory is located within the shared drive: `/drives/internalfirst2tb/Insync`.
 - **Thor Sync:** On Thor, the Insync directory lives at `/home/play/Insync`.
 
@@ -31,6 +33,7 @@ We adhere to a strict **Source of Truth Rule**:
 
 ## The Agent Hook System: Delegated Sync
 The master has fully delegated environment synchronization to the digital partner. The agent is responsible for maintaining state consistency across the entire fleet.
+- **Git Authority:** The agent is authorized and expected to perform `git commit` and `git push` operations from any active node (Thor, Ironman-dashverse, Ironman-work) to ensure configuration changes are immediately reflected in the Source of Truth.
 - **Mandate:** Any modification to a core configuration file, environment variable, or tool setup must be instantly propagated to all nodes. The agent is the "Hook."
 - **Atomic Operations:** No task involving configuration is complete until it is committed to the `dotfiles` repository and pulled/verified on all active nodes (Thor, Ironman-dashverse, Ironman-work).
 - **Runtime & Global Packages:** The agent is responsible for auditing and synchronizing `nvm` Node.js versions and global `npm` packages (e.g., `gemini-cli`, `qwen-code`, `claude-code`) across all nodes.
@@ -94,3 +97,4 @@ Our usage of editors has evolved. We use `vim` and `neovim` as high-agility "vie
 
 ## Gemini Added Memories
 - The user uses Arch Linux and employs 'pacman' and 'yay' for package management and system updates.
+- The digital partner is authorized and responsible for performing git commit and push operations for the 'dotfiles' repository (and other fleet-wide configs) on any node (Thor, Ironman, etc.) to ensure state consistency.
