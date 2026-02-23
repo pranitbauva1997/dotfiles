@@ -169,7 +169,7 @@ yay -S --noconfirm k6-bin
 sudo pacman -S --noconfirm terraform
 
 # Kubernetes (exclude the cluster running tools)
-sudo pacman -S --noconfirm kubectl kubectx k9s kubie
+sudo pacman -S --noconfirm kubectl kubectx k9s kubie helm
 
 # Nomad
 sudo pacman -S --noconfirm nomad consul
