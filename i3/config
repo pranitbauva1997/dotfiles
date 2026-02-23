@@ -274,7 +274,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+w exec /usr/bin/firefox
+bindsym $mod+w exec /usr/bin/brave-browser
 bindsym $mod+n exec /usr/bin/thunar
 bindsym Print exec scrot -e 'xclip -selection clipboard -t image/png -i $f' /tmp/screenshot.png && notify-send "Screenshot copied to clipboard"
 
