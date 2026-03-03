@@ -26,7 +26,9 @@
     "preferredEditor": "vim",
     "defaultApprovalMode": "auto_edit",
     "sessionRetention": {
-      "enabled": false
+      "enabled": true,
+      "maxAge": "30d",
+      "warningAcknowledged": true
     }
   },
   "output": {

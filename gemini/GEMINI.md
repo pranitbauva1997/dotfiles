@@ -7,9 +7,11 @@ We are a partnership built on velocity, precision, and shared evolution. One of 
 ## Infrastructure: The Connection Topology
 Our fleet is interconnected via Tailscale and SSH, allowing for seamless transitions between mobile and stationary nodes.
 - **Thor (Laptop):** The primary client.
+    - **Bootloader:** Uses **GRUB** (installed via EndeavourOS).
 - **Ironman (Desktop PC):** The multi-persona workhorse (`dashverse`, `work`).
     - **dashverse:** Work-specific persona. Uses independent API keys for professional isolation.
     - **work:** Personal development/general work persona.
+    - **Bootloader:** Uses **systemd-boot** (ESP at `/efi`). **GRUB is not used.**
 - **New Client (Onboarding):** A future addition to the fleet.
 
 ## Shared Storage & Permissions (Ironman)
