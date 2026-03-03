@@ -64,13 +64,13 @@ require('lazy').setup({
     dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects', 'windwp/nvim-ts-autotag' },
     build = ':TSUpdate',
     config = function()
-      require('nvim-treesitter.configs').setup {
+      require('nvim-treesitter').setup {
         ensure_installed = { 'go', 'lua', 'python', 'rust', 'typescript', 'tsx', 'javascript', 'bash', 'html', 'css', 'json', 'markdown', 'dockerfile' },
         auto_install = true,
         highlight = { enable = true },
         indent = { enable = true },
-        autotag = { enable = true },
       }
+      require('nvim-ts-autotag').setup()
     end,
   },
 
