@@ -1,7 +1,15 @@
 #!/bin/bash
-if command -v acpi >/dev/null 2>&1; then
-    battery=$(acpi -b 2>/dev/null | awk -F', ' '{print $2}')
-    if [ -n "$battery" ]; then
-        echo "$battery | "
+for bat in /sys/class/power_supply/BAT*; do
+    if [ -d "$bat" ]; then
+        capacity=$(cat "$bat/capacity" 2>/dev/null)
+        status=$(cat "$bat/status" 2>/dev/null)
+        if [ -n "$capacity" ]; then
+            if [ "$status" = "Charging" ]; then
+                echo "⚡$capacity% | "
+            else
+                echo "$capacity% | "
+            fi
+            exit 0
+        fi
     fi
-fi
+done
