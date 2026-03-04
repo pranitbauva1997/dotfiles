@@ -118,3 +118,4 @@ fi
         fi
     fi
 )
+alias oneapi-env='source /opt/intel/oneapi/setvars.sh'
