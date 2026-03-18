@@ -346,6 +346,9 @@ set $ws10 "0"
 # autostart applications/services on login: #
 #############################################
 
+# Start Insync
+exec --no-startup-id insync start
+
 #get auth work with polkit-gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
