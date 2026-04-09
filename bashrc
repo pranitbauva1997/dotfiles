@@ -56,6 +56,8 @@ if [ -d "$HOME/go/bin" ]; then
 fi
 
 # --- Global Aliases ---
+alias claude='claude --dangerously-skip-permissions'
+alias claudeno='\claude'
 alias tailnirah="sudo tailscale switch nirah"
 alias tailpersonal="sudo tailscale switch personal"
 alias tailbuffett="sudo tailscale switch buffettandmunger"
