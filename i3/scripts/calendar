@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+case $BLOCK_BUTTON in
+  1) yad --calendar --mouse --undecorated --close-on-unfocus --no-buttons & ;;
+esac
+
+date '+%a %d %b %H:%M:%S'

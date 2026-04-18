@@ -29,6 +29,9 @@
       "enabled": true,
       "maxAge": "30d",
       "warningAcknowledged": true
+    },
+    "plan": {
+      "enabled": true
     }
   },
   "output": {
@@ -39,7 +42,9 @@
     "name": "gemini-3-flash-preview"
   },
   "experimental": {
-    "useOSC52Paste": true,
-    "plan": true
+    "useOSC52Paste": true
+  },
+  "agents": {
+    "overrides": {}
   }
 }
